@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
     <script src="./jquery.js"></script>
     <link rel="stylesheet" href="./layui.css">
     <script src="./layui.js"></script>
@@ -302,6 +308,7 @@
     function bianji(id) {
 
         let name =
+            // https://mp3.zzgoodqc.cn/
             $.ajax({
                 type: 'GET',
                 url: "https://mp3.zzgoodqc.cn/api/songs/" + id,

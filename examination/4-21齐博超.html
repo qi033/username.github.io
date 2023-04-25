@@ -323,7 +323,7 @@
         console.log(abb);
         event.preventDefault()
         $.ajax({
-            url: 'http://81.68.107.245/api/songs/' + abb,
+            url: 'https://mp3.zzgoodqc.cn/api/songs/' + abb,
             type: "PUT",
             dataType: "json",
             headers: {
@@ -368,7 +368,7 @@
     //查看
     function cha(id) {
         $.ajax({
-            url: 'http://81.68.107.245/api/songs/' + id,
+            url: 'https://mp3.zzgoodqc.cn/api/songs/' + id,
             type: "get",
             dataType: "json",
             success: function (res) {

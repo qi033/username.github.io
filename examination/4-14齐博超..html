@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+</head>
+<style>
+    * {
+        padding: 0px;
+        bottom: 0px;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    table tbody tr td {
+        height: 35px;
+    }
+
+    #increased {
+        background-color: #4165D7;
+        border: 1px solid #4165D7;
+    }
+
+    #Delete-All {
+        background-color: pink;
+        border: 1px solid pink;
+    }
+
+    .boxsearch input {
+        width: 200px;
+        height: 25px;
+        border-radius: 5px;
+        margin-bottom: 3px;
+    }
+
+    .boxsearch {
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+
+    #myForm {
+        text-align: center;
+        width: 300px;
+        height: 240px;
+        background-color: #ccc;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 3px;
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+</style>
+
+<body>
+    <button id="increased">新增</button>
+    <button id="Delete-All">删除</button>
+    <div class="boxsearch">
+        搜索：<input type="text" name="" id="search">
+    </div>
+    <!-- 表单 -->
+    <form id="myForm">
+        <br>
+        充值话费：<input type="text" id="name" name="name" value="￥50.00"><br><br>
+        <br>
+        赠送金额：<input type="text" id="age" name="age" value="￥25.00"><br><br>
+        <br>
+        I D：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="id" name="id" value="26"><br><br>
+        <br>
+        <button id="submit save-btn">添加</button>
+        <button id="cancel">取消添加</button>
+    </form>
+    <!--  -->
+    <table border="1" cellspacing="0" id="myTable">
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id="to"></th>
+                <th>充值话费</th>
+                <th>赠送金额</th>
+                <th>推 荐</th>
+                <th class="paixu">排 序</th>
+                <th>操 作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+</body>
+<script>
+    let str = [
+        {
+            name: "￥600.00",
+            price: '￥200.00',
+            id: '21'
+
+        },
+        {
+            name: "￥300.00",
+            price: '￥50.00',
+            id: '25'
+
+        },
+        {
+            name: "￥200.00",
+            price: '￥30.00',
+            id: '24'
+
+        },
+        {
+            name: "￥100.00",
+            price: '￥10.00',
+            id: '23'
+
+        },
+        {
+            name: "￥150.00",
+            price: '￥20.00',
+            id: '22'
+
+        },
+    ];
+
+    $(function () {
+        whole()
+        xuanran()
+        diantianjia()
+
+    })
+
+    // 添加表格数据
+    function diantianjia() {
+        $('#myForm').submit(function (event) {
+            event.preventDefault(); // 阻止表单提交
+            var name = $('#name').val();
+            var price = $('#age').val();
+            var id = $('#id').val();
+
+            // 将表单数据添加到表格中
+            $('#myTable tbody').append(`
+        <tr>
+            <td><input type="checkbox" name="" id="" class="genban"></td>
+              <td>${name}</td>
+            <td>${price}</td>
+                 <td><button class="qidong">启动</button></td>
+                  <td>${id}</td>
+             <td>
+                    <button class="edit">编 辑</button>
+                    <button class="deletes">删 除</button>
+                </td>
+        </tr>
+            
+            `);
+            // 清空表单
+            $('#myForm')[0].reset();
+            whole()
+        });
+    }
+
+    // 渲染页面
+    function xuanran() {
+        var html = "";
+        $.each(str, function (index, item) {
+            html += `
+    <tr>
+                <td class="ding"><input type="checkbox" name="" id="" class="genban"></td>
+               
+                <td>${item.name}</td>
+                <td>${item.price}</td>
+                <td><button class="qidong">启动</button></td>
+                <td>${item.id}</td>
+                <td>
+                    
+                    <button class="edit">编 辑</button>
+                    <button class="deletes">删 除</button>
+                </td>
+            </tr>
+          `;
+        });
+        $("tbody").append(html);
+        whole()
+    }
+
+    // taiduolediaoyongyixia
+    function whole() {
+        // 显示
+        $("#increased").click(function () {
+            event.preventDefault(); // 阻止表单提交
+            $("#myForm").css('display', 'block')
+        })
+        // 添加隐藏
+        $("#cancel").click(function (e) {
+            event.preventDefault();
+            $("#myForm").css('display', 'none')
+
+        })
+        // 全选
+        $("#to").click(function () {
+            $(".genban").prop("checked", $(this).prop("checked"));
+        });
+        // 反选
+        $(".genban").click(function () {
+            if ($(".genban:checked").length == $(".genban").length) {
+                $("#to").prop("checked", true);
+            } else {
+                $("#to").prop("checked", false);
+            }
+        });
+        // 点击锁定颜色
+        // $('table tbody tr').click(function () {
+        //     $('table tbody tr').removeClass('tae');
+        //     $(this).addClass('tae');
+        // });
+        // 删除
+        $(".deletes").unbind().click(function (e) {
+            if (confirm("确定要删除吗")) {
+                $(this).parent().parent().detach()
+                alert('删除成功')
+            }
+        });
+        // 移动
+        // $('.yidong').on('click', function () {
+        //     // 将当前行移动到表格的最后一行
+        //     $(this).closest('table tbody tr').appendTo($(this).closest('table'));
+        // })
+
+        // 启动
+
+        $('.qidong').on('click', function () {
+            let arr = $(this).text()
+            if (arr == '启动') {
+                $(this).text('关闭').css('backgroundColor', 'red')
+                console.log(arr);
+            } else {
+                $(this).text('启动').css('backgroundColor', '#4165D7')
+            }
+        })
+
+    }
+
+    // 选中删除
+    $("#Delete-All").click(function () {
+        if (confirm("确定要删除吗")) {
+            $("table tbody tr").has("input[type='checkbox']:checked").each(function () {
+                $(this).remove();
+            });
+        }
+    });
+
+    // 搜索
+    $("#search").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        //  搜索隐藏这一块
+        $('.yincang').hide()
+    });
+
+    // 排序
+    $(document).ready(function () {
+        $('.paixu').click(function () {
+            var table = $(this).parents('table').eq(0);
+            var rows = table.find('tr:gt(0)').toArray().sort(compare($(this).index()));
+            this.asc = !this.asc;
+            if (!this.asc) {
+                rows = rows.reverse();
+            }
+            for (var i = 0; i < rows.length; i++) {
+                table.append(rows[i]);
+            }
+        });
+    });
+
+    function compare(index) {
+        return function (a, b) {
+            var valA = getCellValue(a, index);
+            var valB = getCellValue(b, index);
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB);
+        }
+    }
+
+    function getCellValue(row, index) {
+        return $(row).children('td').eq(index).text();
+    }
+
+</script>
+
+</html>
+<style>
+    .tae {
+        background-color: rgb(120, 222, 207);
+    }
+
+    table {
+        border: 1px solid #ddd;
+    }
+
+    table thead {
+        height: 35px;
+        background-color: #F2F2F2;
+    }
+
+    table tbody tr:hover {
+        background-color: #ccc;
+    }
+
+    .ding {
+        width: 75px;
+        height: 15px;
+    }
+
+    .yincang {
+        display: none;
+    }
+
+    .detailed {
+        color: #000;
+        background-color: #F5F7FA;
+    }
+
+    .yidong {
+        color: #4165D7;
+        background-color: #F5F7FA;
+    }
+
+    .edit {
+        color: #fff;
+        background-color: #1E9FFF;
+        border: 1px solid #1E9FFF;
+
+    }
+
+    .deletes {
+        background-color: #FF5722;
+        border: 1px solid #FF5722;
+        color: #fff;
+    }
+
+
+    table {
+        width: 100%;
+        margin: auto;
+    }
+
+    .qidong {
+        border-radius: 5px;
+        background-color: #4165D7;
+    }
+
+    button {
+        width: 70px;
+        height: 25px;
+        color: #fff;
+        border: 1px solid rgb(54, 120, 120);
+        background-color: rgb(54, 120, 120);
+    }
+</style>

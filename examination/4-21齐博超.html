@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <link rel="stylesheet" href="./layui.css">
+    <script src="./layui.js"></script>
+</head>
+<style>
+    #boxone {
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -20%);
+        background-color: rgba(8, 8, 8, 0.748);
+        text-align: center;
+        display: none;
+        border-radius: 20px;
+    }
+
+    #update {
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(8, 8, 8, 0.748);
+        display: none;
+        text-align: center;
+        padding-right: 10px;
+        border-radius: 20px;
+    }
+
+    #div2 {
+        display: none;
+    }
+
+    .layui-logo img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+    }
+
+    .chongfu {
+        width: 70px;
+        height: 25px;
+        color: #fff;
+        border: 1px solid #0eb0c9;
+        background-color: #0eb0c9;
+    }
+
+    .shanchu {
+        width: 70px;
+        height: 25px;
+        color: #fff;
+        border: 1px solid #c90e0e;
+        background-color: #c90e0e;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .layui-table thead th {
+        text-align: center;
+    }
+
+    .layui-table tbody th {
+        text-align: center;
+    }
+
+    #boxone i {
+        color: #ffff;
+    }
+
+    #Search {
+        background-color: #4e6ef2;
+        border-radius: 0 10px 10px 0;
+        margin-left: -10px;
+
+    }
+
+    #boxto {
+        width: 100%;
+        height: 61px;
+        background-color: #393D49;
+    }
+
+    svg {
+        height: 15px;
+        width: 15px;
+    }
+
+    #box {
+        margin-top: 1px;
+    }
+
+    #Add_to {
+        width: 70px;
+        height: 61px;
+        color: #fff;
+        border: 1px solid rgb(54, 120, 120);
+        background-color: rgb(54, 120, 120);
+    }
+
+    #delete-selected {
+        width: 70px;
+        height: 61px;
+        color: #fff;
+        border: 1px solid rgb(163, 44, 44);
+        background-color: rgb(163, 44, 44);
+    }
+
+    h2 {
+        color: rgb(54, 120, 120);
+    }
+
+    body {
+        color: #6b6a6a;
+    }
+
+    table thead tr {
+        height: 50px;
+        background-color: #ddd;
+    }
+
+    table tbody tr {
+        height: 40px;
+    }
+</style>
+
+<body>
+
+    <!-- 改变页面样式 -->
+    <div id="boxto">
+        搜索：<div class="layui-input-inline" id="sosuoyou">
+            <input type="search" name="password" required lay-verify="required" placeholder="请输入" autocomplete="off"
+                class="layui-input" id="search" />
+
+        </div>
+
+        <button id="Add_to">添加</button>
+        <button id="delete-selected" onclick="shanchu('id')">批量删除</button>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+                <a href="#">
+                    <i class="layui-icon layui-icon-set-fill">改变页面</i>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd id="whites" onclick="changeBgColor('#FFFFFF')">
+                        <a href="#"><svg t="1682063669241" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="1897" width="200" height="200">
+                                <path
+                                    d="M512 831.508c16.264 0 29.792 11.72 32.597 27.176l0.534 5.955v62.23C545.13 945.167 530.298 960 512 960c-16.265 0-29.792-11.72-32.597-27.175l-0.534-5.956v-62.23c0-18.298 14.833-33.13 33.131-33.13z m267.584-97.826l5.197 4.245 44.002 44.002c12.938 12.938 12.938 33.916 0 46.854-11.321 11.321-28.797 12.736-41.656 4.245l-5.198-4.245-44.002-44.002c-12.938-12.938-12.938-33.915 0-46.854 11.321-11.32 28.797-12.736 41.657-4.245z m-493.511 4.246c11.32 11.32 12.736 28.796 4.245 41.656l-4.246 5.197-44.002 44.002c-12.939 12.938-33.916 12.938-46.854 0-11.32-11.321-12.736-28.797-4.245-41.657l4.245-5.197 44.003-44.002c12.938-12.938 33.916-12.938 46.854 0zM512 274.932c130.929 0 237.068 106.14 237.068 237.068 0 130.929-106.14 237.068-237.068 237.068-130.929 0-237.068-106.14-237.068-237.068 0-130.929 106.14-237.068 237.068-237.068z m414.87 203.937c18.297 0 33.13 14.833 33.13 33.131 0 16.264-11.72 29.792-27.175 32.597l-5.956 0.534h-62.23c-18.298 0-33.13-14.833-33.13-33.131 0-16.265 11.72-29.792 27.175-32.597l5.955-0.534h62.23z m-767.509 0c18.298 0 33.13 14.833 33.13 33.131 0 16.264-11.72 29.792-27.175 32.597l-5.955 0.534h-62.23C78.833 545.13 64 530.298 64 512c0-16.265 11.72-29.792 27.175-32.597l5.956-0.534h62.23z m669.422-283.653c11.321 11.32 12.736 28.797 4.246 41.656l-4.246 5.198-44.002 44.002c-12.938 12.939-33.915 12.94-46.853 0-11.322-11.32-12.737-28.796-4.246-41.656l4.245-5.197 44.002-44.003c12.938-12.938 33.915-12.938 46.854 0z m-591.91-4.245l5.197 4.245 44.003 44.003c12.938 12.938 12.938 33.915 0 46.854-11.321 11.32-28.797 12.736-41.657 4.245l-5.197-4.245-44.003-44.003c-12.938-12.938-12.938-33.915 0-46.854 11.321-11.32 28.797-12.736 41.657-4.245zM512 64c16.264 0 29.792 11.72 32.597 27.175l0.534 5.956v62.23c0 18.298-14.833 33.13-33.131 33.13-16.265 0-29.792-11.72-32.597-27.175l-0.534-5.955v-62.23C478.87 78.833 493.702 64 512 64z"
+                                    fill="#000000" fill-opacity=".65" p-id="1898"></path>
+                            </svg>Light</a>
+                    </dd>
+                    <dd id="blacks" onclick="changeBgColor('#1B1B1B')"><a href="#">
+                            <svg t="1682058292703" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="2758" width="200" height="200">
+                                <path
+                                    d="M529.611373 1023.38565c-146.112965 0-270.826063-51.707812-374.344078-155.225827C51.74928 764.641808 0.041469 639.826318 0.041469 493.815745c0-105.053891 29.693595-202.326012 88.978393-292.22593 59.38719-89.797526 137.000103-155.942569 232.83874-198.63991 6.041111-4.607627 12.184613-3.788493 18.225724 2.252618 7.576986 4.607627 9.931996 11.365479 6.860244 20.580733C322.677735 83.736961 310.493122 142.202626 310.493122 201.589815c0 135.464227 48.328885 251.474031 144.986656 348.131801 96.657771 96.657771 212.667574 144.986656 348.131801 144.986656 74.541162 0 139.252721-11.365479 194.032283-34.19883C1003.684974 655.799424 1009.726084 656.618558 1015.767195 662.659669c7.576986 4.607627 9.931996 11.365479 6.860244 20.580733C983.104241 786.758417 918.802249 869.286132 829.721465 930.925939 740.743072 992.565746 640.706375 1023.38565 529.611373 1023.38565z"
+                                    p-id="2759"></path>
+                            </svg>
+                            Dark</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                <a href="#">
+                    <i class="layui-icon layui-icon-more-vertical"></i>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="box">
+        <!-- 表格 -->
+        <table border="1" id="myTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="" id="to"></th>
+                    <th>ID</th>
+                    <th>歌曲名称</th>
+                    <th>艺术家</th>
+                    <th>专辑名称</th>
+                    <th>年代</th>
+                    <th>类型</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tbo"></tbody>
+        </table>
+        <button id="shangBtn" class="chongfu">上一页</button>
+        <button id="nextBtn" class="chongfu">下一页</button>
+        <!-- 添加 -->
+        <div id="boxone">
+            <br>
+            <h2>添加艺人</h2>
+            <form id="myForm">
+                <br>
+                歌 曲 名 称：<input type="text" name="name" value="听说你" id="Name_one">
+                <br><br>
+                艺 &nbsp&nbsp 术&nbsp 家：<input type="text" name="iphone" value="于冬然" id="password">
+                <br><br>
+                专 辑 名 称：<input type="text" name="nick" value="《听说你》" id="birthday">
+                <br><br>
+                年 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp代：<input type="text" name="sex" placeholder="2021"
+                    id="number">
+                <br><br>
+                类 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型：<input type="text" name="sex" value="随便" id="types">
+                <br><br>
+                <button class="layui-btn layui-btn-radius  asd" id="submit">添加</button>
+                <button class="layui-btn layui-btn-radius" id="Shut_down">关闭</button>
+            </form>
+        </div>
+
+        <!-- 编辑 -->
+        <div id="update">
+            <br>
+            <h2>编辑</h2>
+            <br>
+            <form id="myForms">
+                歌 曲 名 称：<input type="text" name="name" placeholder="歌曲名称" id="Name_ones">
+                <br><br>
+                艺 &nbsp&nbsp 术&nbsp 家：<input type="text" name="iphone" placeholder="艺术家" id="passwords">
+                <br><br>
+                专 辑 名 称：<input type="text" name="nick" placeholder="专辑名称" id="birthdays">
+                <br><br>
+                年 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp代：<input type="text" name="sex" placeholder="2021"
+                    id="numbers">
+                <br><br>
+                类 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型：<input type="text" name="sex" placeholder="类型"
+                    id="typess">
+                <br><br>
+                <button class="layui-btn layui-btn-radius  asd" id="Add_three">确定编辑</button>
+                <button class="layui-btn layui-btn-radius" id="Shut_downs">关闭编辑</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+
+    //分页
+    $('#nextBtn').click(function () {
+        let arr = $('table tbody tr').length
+        if (arr < pageSize && page++) {
+            alert('已经最后一页了')
+        }
+    })
+    $('#shangBtn').click(function () {
+        if (page == 1 && page--) {
+            alert('已经是第一页了')
+        }
+    })
+    // 改变颜色
+    // function gaibian() {
+    //     $("#whites").click(function () {
+    //         $("body").css("background", "#FFFFFF");
+    //         $("table thead tr").css("background", "#FFFFFF");
+    //         $(".layui-table").css("background", "#FFFFFF");
+    //         $("*").css("color", "#1B1B1B");
+    //     });
+
+    //     $("#blacks").click(function () {
+    //         $("body").css("background", "#1B1B1B");
+    //         $("table thead tr").css("background", "#1B1B1B");
+    //         $(".layui-table").css("background", "#1B1B1B");
+    //         $("*").css("color", "#FFFFFF");
+
+    //     });
+
+    // }
+
+    // 本地存储改变颜色 
+    function changeBgColor(color) {
+        document.body.style.backgroundColor = color;
+        localStorage.setItem("bgColor", color);
+
+    }
+
+    window.onload = function () {
+        var bgColor = localStorage.getItem("bgColor");
+        if (bgColor) {
+            document.body.style.backgroundColor = bgColor;
+
+        }
+    };
+    // 分页
+    let page = 1,
+        pageSize = 5
+    $(function () {
+        //  1 渲染   2添加  全选反选
+        RenderingFun()
+        increase()
+        quanfan()
+        // bianji()
+        $('#nextBtn').click(function () {
+            page++
+            RenderingFun()
+        })
+        $('#shangBtn').click(function () {
+            page--
+            RenderingFun()
+        })
+        $("#myForms").click(function () {
+            event.preventDefault();  // 阻止表单默认提交行为
+        })
+    })
+
+    // 编辑
+    var str = []
+    function bianji(id) {
+
+        let name =
+            $.ajax({
+                type: 'GET',
+                url: "https://mp3.zzgoodqc.cn/api/songs/" + id,
+                dataType: "json",
+                success: function (data) {
+                    $('#Name_ones').val(data.data.title),
+                        $('#passwords').val(data.data.artist),
+                        $('#birthdays').val(data.data.album),
+                        $('#numbers').val(data.data.year),
+                        $('#typess').val(data.data.genre)
+                }
+            })
+        $("#update").css("display", "block");
+
+        str.push(id)
+    }
+    $('#Add_three').click(function () {
+        let abb = str.join()
+        console.log(abb);
+        event.preventDefault()
+        $.ajax({
+            url: 'http://81.68.107.245/api/songs/' + abb,
+            type: "PUT",
+            dataType: "json",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                id: abb,
+                title: $("#Name_ones").val(),
+                artist: $("#passwords").val(),
+                album: $("#birthdays").val(),
+                year: $("#numbers").val(),
+                genre: $("#typess").val(),
+            }),
+            success: function (data) {
+                if (data.code == "200") {
+                    alert(data.msg)
+                    RenderingFun()
+                    str = []
+                } else {
+                    alert(data.msg);
+                }
+            }
+        })
+    })
+
+
+    //删除
+    function btn(id) {
+        $.ajax({
+            url: "https://mp3.zzgoodqc.cn/api/songs/" + id,
+            type: "DELETE",
+            dataType: "json",
+
+            // if(confirm("确定要删除吗?"))
+            success: function (res) {
+                RenderingFun()
+            },
+        });
+    }
+    // 批量删除
+
+    //查看
+    function cha(id) {
+        $.ajax({
+            url: 'http://81.68.107.245/api/songs/' + id,
+            type: "get",
+            dataType: "json",
+            success: function (res) {
+                let html = `
+                <table class="layui-table">
+                <tbody>
+                <tr>
+                    <td>歌曲名称</td>
+                    <td>${res.data.title}</td>
+                </tr>
+                <tr>
+                    <td>艺术家</td>
+                    <td>${res.data.artist}</td>
+                </tr>
+                <tr>
+                    <td>专辑名称</td>
+                    <td>${res.data.album}</td>
+                </tr>
+                <tr>
+                   <td>年代</td>
+                    <td>${res.data.year}</td>
+                </tr>
+                <tr>
+                    <td>类型</td>
+                    <td>${res.data.genre}</td>
+                </tr>
+                </tbody>
+                </table>
+                `;
+                layer.msg(html);
+            }
+        })
+    }
+    // 搜索  
+    $("#search").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    // 渲染 
+    function RenderingFun() {
+        $.ajax({
+            url: `http://81.68.107.245/api/songs?page=${page}&pageSize=${pageSize}`,
+            type: "GET",
+            dataType: "json",
+            success: function (res) {
+                let add = "";
+                let arr = res.data
+                // console.log(res)
+                arr.forEach(function (item, index) {
+                    add += `<tr>
+                        <th><input type="checkbox" name="" id="" class="genban"></th>
+                        <th>${item.id}</th>
+                        <th>${item.title}</th>
+                        <th>${item.artist}</th>
+                        <th>${item.album}</th>
+                        <th>${item.year}</th>
+                        <th>${item.genre}</th>
+                        <th>
+                        <button onclick="bianji(${item.id})" class="chongfu">编辑</button>
+                        <button onclick="cha(${item.id})" class="chongfu">查看</button>
+                        <button class="shanchu" onclick="btn(${item.id})" class="chongfu">删除</button>
+                        </th>
+                        </tr>`;
+                })
+                $("#tbo").html(add);
+                quanfan()
+            }
+        });
+    }
+
+    //  添加
+    function increase() {
+        $('#myForm').submit(function (event) {
+            // console.log(312)
+            event.preventDefault();  // 阻止表单默认提交行为
+            $.ajax({
+                url: `https://mp3.zzgoodqc.cn/api/songs`,
+                method: 'POST',
+                dataType: 'JSON',
+                // dataType: JSON.stringify(),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                data: JSON.stringify({
+                    title: $("#Name_one").val(),
+                    artist: $("#password").val(),
+                    album: $("#birthday").val(),
+                    year: $("#number").val(),
+                    genre: $("#types").val(),
+                }),
+
+                success: function (data) {
+                    localStorage.setItem('data', JSON.stringify(data));
+                    // 在单页面上添加新内容
+                    $('tbody').append(
+                        `
+                                            <tr>
+                                                                  <th><input type="checkbox" name="" id="" class="genban"></th>
+                                                                    <th>${data.id}</th>
+                                                                    <th>${data.title}</th>
+                                                                    <th>${data.artist}</th>
+                                                                    <th>${data.album}</th>
+                                                                    <th>${data.year}</th>
+                                                                    <th>${data.genre}</th>
+                                                                    <th>
+                                                                    <button onclick="bianji(${data.id})" class="chongfu">编辑</button>
+                                                                    <button onclick="cha(${data.id})" class="chongfu">查看</button>
+                                                     <button class="shanchu" onclick="btn(${data.id})" class="chongfu">删除</button>
+                                                                    </th>
+                                            </tr>
+                                            `
+                    );
+                }
+            });
+            RenderingFun()
+            quanfan()
+        });
+    }
+    // 获取本地存储的数据
+    var data = JSON.parse(localStorage.getItem('data'));
+
+    //  添加弹出框
+    $("#Add_to").click(function () {
+        event.preventDefault();
+        $("#boxone").css("display", "block");
+    });
+    // 添加隐藏
+    $("#Shut_down").click(function () {
+        event.preventDefault();
+        $("#boxone").css("display", "none");
+    });
+    // 编辑隐藏
+    $("#Shut_downs").click(function () {
+        event.preventDefault();
+        $("#update").css("display", "none");
+    });
+
+    function quanfan() {
+        // 全选
+        $("#to").click(function () {
+            $(".genban").prop("checked", $(this).prop("checked"));
+        });
+        // 反选
+        $(".genban").click(function () {
+            if ($(".genban:checked").length == $(".genban").length) {
+                $("#to").prop("checked", true);
+            } else {
+                $("#to").prop("checked", false);
+            }
+        });
+    }
+    // 选中删除
+    $("#delete-selected").click(function shanchu(id) {
+        if (confirm("确定要删除吗")) {
+            var selectedRows = $("table tbody tr").has("input[type='checkbox']:checked");
+            if (selectedRows.length > 0) {
+                var idsToDelete = [];
+                selectedRows.each(function () {
+                    idsToDelete.push($(this).find(".id").text());
+                });
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://mp3.zzgoodqc.cn/api/songs/" + id,
+                    data: { ids: idsToDelete },
+                    success: function (data) {
+                        // 处理服务器返回的结果
+                        console.log(data);
+                        selectedRows.remove();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        // 处理错误信息
+                        console.log(errorThrown);
+                    }
+                });
+                console.log(341)
+            } else {
+                alert("请先选择要删除的行！");
+            }
+        }
+    });
+
+</script>
+
+</html>

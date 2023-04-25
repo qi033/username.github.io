@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    table {
+        width: 800px;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div class="box2" style="float: right">
+        商 品：<input type="text" name="" id="commodity" />
+
+        价 格：<input type="text" name="" id="inventory" />
+
+        库 存:<input type="text" name="" id="ku" />
+
+        实际销量:<input type="number" name="" id="sales" />
+
+        创造时间:<input type="number" name="" id="time" />
+    </div>
+    <button id="btn" style="
+        margin-bottom: 50px;
+        background-color: rgb(0, 89, 255);
+        border: 1px solid rgb(0, 89, 255);
+        color: #fff;
+      ">
+        +添加商品
+    </button>
+    <div class="box1" style="border-bottom: 1px solid #333; margin-bottom: 20px"></div>
+    <br />
+
+    商品名称：<input type="text" name="" id="seachInput" placeholder="商品名称 / 编码 / 条码 " />
+    <button style="
+        background-color: rgb(0, 89, 255);
+        border: 1px solid rgb(0, 89, 255);
+        margin-left: 25px;
+        color: #fff;
+      " onclick="seach()">
+        搜索
+    </button>
+
+    <button style="color: rgb(0, 89, 255); margin-left: 25px" onclick="chong()">
+        重置
+    </button>
+
+    <div id="box" style="margin-top: 50px">
+        <table cellpadding="1" cellspacing="1" border="1" style="width: 800px" id="forms">
+            <!--表格 form-->
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="" oncahnge="change()" /></th>
+                    <th id="sort">排序</th>
+                    <!--sort-->
+                    <th>商品</th>
+                    <!--commodity  -->
+                    <th onclick="sortPrice(1)">价格</th>
+                    <!--Price-->
+                    <th onclick="sortPrice(2)">库存</th>
+                    <!--inventory-->
+                    <th onclick="sortPrice(3)">实际销量</th>
+                    <!--销售sales-->
+                    <th>创造时间</th>
+                    <!---时间time-->
+                    <th>操作</th>
+                    <!--造作operate-->
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    var list = JSON.parse(localStorage.getItem("list"));
+    window.onload = function () {
+        showList();
+        document.getElementById("btn").onclick = function () {
+            addList();
+        };
+    };
+
+    function addList() {
+        // input 获取
+        var content = document.getElementById("commodity").value;
+        var price = document.getElementById("inventory").value;
+        var ku = document.getElementById("ku").value;
+        var nowku = document.getElementById("sales").value;
+        var time = document.getElementById("time").value;
+
+        var obj = {
+            content: content,
+            price: price,
+            ku: ku,
+            nowku: nowku,
+            time: time,
+        };
+        // 添加
+        list.push(obj);
+        // 本地存储
+        localStorage.setItem("list", JSON.stringify(list));
+        // 实时刷新
+        showList();
+    }
+    function showList(arr = "") {
+        // 获取本地list 数据进行渲染
+        var list = localStorage.getItem("list")
+            ? JSON.parse(localStorage.getItem("list"))
+            : [];
+        var str = "";
+        if (arr != "") {
+            list = arr;
+        }
+        // 循环渲染
+        var num = 0;
+        for (let i in list) {
+            str += `
+            <tr>
+              <td><input type="checkbox"  /></td>  
+              <td>${num++}</td>
+              <td>${list[i].content}</td>
+              <td>${list[i].price}</td>
+              <td>${list[i].ku}</td>
+              <td>${list[i].nowku}</td>
+              <td>${list[i].time}</td>
+              <td>
+                <button onclick="del(${i})">删除</button>
+                <button onclick="cope(${i})">复制</button> 
+              </td>
+            </tr>
+        `;
+        }
+        document.getElementById("tbody").innerHTML = str;
+    }
+
+    function del(index) {
+        // 删除
+        list.splice(index, 1);
+        localStorage.setItem("list", JSON.stringify(list));
+        // 实时刷新
+        showList();
+    }
+    function cope(index) {
+        // 找到全局本地list对应点击下标
+        var newarr = list[index].content + '-复制'
+        var obj = {
+            content: newarr,
+            price: list[index].price,
+            ku: list[index].ku,
+            nowku: list[index].nowku,
+            time: list[index].time,
+        }
+        list.push(obj)
+        // list保存到本地
+        localStorage.setItem("list", JSON.stringify(list));
+        // 渲染页面
+        showList();
+    }
+    function seach() {
+        var arr = list.map(function (item) {
+            return item;
+        });
+        var arr1 = arr.filter(function (item) {
+            console.log(item.content);
+            return document.getElementById("seachInput").value === item.content;
+        });
+        console.log(arr1);
+        showList(arr1);
+
+    }
+
+    function chong() { }
+    function sortPrice(num) {
+        console.log(111, list);
+        if (num == 1) {
+            list.sort(function (a, b) {
+                return a.price - b.price;
+            });
+        } else if (num == 2) {
+            list.sort(function (a, b) {
+                return a.ku - b.ku;
+            });
+        } else {
+            list.sort(function (a, b) {
+                return a.nowku - b.nowku;
+            });
+        }
+        showList(list);
+    }
+</script>
+
+</html>

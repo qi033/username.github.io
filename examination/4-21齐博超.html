@@ -9,6 +9,7 @@
     <script src="./jquery.js"></script>
     <link rel="stylesheet" href="./layui.css">
     <script src="./layui.js"></script>
+
 </head>
 <style>
     #boxone {
@@ -139,7 +140,7 @@
 
     <!-- 改变页面样式 -->
     <div id="boxto">
-        搜索：<div class="layui-input-inline" id="sosuoyou">
+        &nbsp&nbsp搜 索：<div class="layui-input-inline" id="sosuoyou">
             <input type="search" name="password" required lay-verify="required" placeholder="请输入" autocomplete="off"
                 class="layui-input" id="search" />
 
@@ -259,24 +260,6 @@
             alert('已经是第一页了')
         }
     })
-    // 改变颜色
-    // function gaibian() {
-    //     $("#whites").click(function () {
-    //         $("body").css("background", "#FFFFFF");
-    //         $("table thead tr").css("background", "#FFFFFF");
-    //         $(".layui-table").css("background", "#FFFFFF");
-    //         $("*").css("color", "#1B1B1B");
-    //     });
-
-    //     $("#blacks").click(function () {
-    //         $("body").css("background", "#1B1B1B");
-    //         $("table thead tr").css("background", "#1B1B1B");
-    //         $(".layui-table").css("background", "#1B1B1B");
-    //         $("*").css("color", "#FFFFFF");
-
-    //     });
-
-    // }
 
     // 本地存储改变颜色 
     function changeBgColor(color) {
@@ -430,7 +413,8 @@
     // 渲染 
     function RenderingFun() {
         $.ajax({
-            url: `http://81.68.107.245/api/songs?page=${page}&pageSize=${pageSize}`,
+            // https://mp3.zzgoodqc.cn/
+            url: `https://mp3.zzgoodqc.cn/api/songs?page=${page}&pageSize=${pageSize}`,
             type: "GET",
             dataType: "json",
             success: function (res) {

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+    
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts-gl/2.0.8/echarts-gl.js"></script>
+    <!-- <script src="./echarts.common.js"></script> -->
+</head>
+<style>
+    #main {
+        width: 400px;
+        height: 400px;
+    }
+</style>
+
+<body>
+    <div id="main"></div>
+</body>
+<script>
+
+    var ROOT_PATH = 'https://echarts.apache.org/examples';
+    var myChart = echarts.init(document.getElementById('main'));
+    var option = {
+        backgroundColor: '#000',
+        globe: {
+            baseTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',
+            heightTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',
+            displacementScale: 0.04,
+            shading: 'realistic',
+            environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
+            realisticMaterial: {
+                roughness: 0.9
+            },
+            postEffect: {
+                enable: true
+            },
+            light: {
+                main: {
+                    intensity: 5,
+                    shadow: true
+                },
+                ambientCubemap: {
+                    texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',
+                    diffuseIntensity: 0.2
+                }
+            }
+        }
+    };
+    myChart.setOption(option);
+
+</script>
+
+</html>

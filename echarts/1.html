@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const student = [
+            {
+                name: "陈静静",
+                result: [
+                    {
+                        date: "2023-3-31",
+                        subject: [
+                            {
+                                name: "机试",
+                                score: 60,
+                            },
+                        ],
+                    },
+                    {
+                        date: "2023-4-4",
+                        subject: [
+                            {
+                                name: "机试",
+                                score: 35,
+                            },
+                            {
+                                name: "笔试",
+                                score: 85,
+                            },
+                        ],
+                    },
+                    {
+                        date: "2023-4-11",
+                        subject: [
+                            {
+                                name: "机试",
+                                score: 65,
+                            },
+                        ],
+                    },
+                    {
+                        date: "2023-4-21",
+                        subject: [
+                            {
+                                name: "机试",
+                                score: 75,
+                            },
+                            {
+                                name: "笔试",
+                                score: 65,
+                            },
+                        ],
+                    },
+                ],
+            },
+        ];
+        
+        layui.use("table", function () {
+            var $ = layui.$;
+            showList();
+            function showList() {
+                let html = "";
+                student.forEach((item, index) => {
+                    console.log(123);
+                    html += `<button class="layui-btn">${item.name}</button>`;
+                });
+                $("#box").html(html);
+            }
+        });
+    </script>
+</body>
+
+</html>

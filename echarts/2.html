@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+
+</head>
+<style>
+    #studentBtn {
+        margin: 30px;
+        height: 80px;
+    }
+
+    #main {
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        width: 1000px;
+        height: 600px;
+    }
+</style>
+
+<body>
+    <div id="box">
+        <div id="studentBtn"></div>
+        <div id="main"></div>
+    </div>
+</body>
+<script>
+    const students = [
+        {
+            name: "李泽",
+            result: [
+                {
+                    date: "2023-3-31",
+                    subject: [
+                        { name: "机试", score: 99 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+                {
+                    date: "2023-4-4",
+                    subject: [
+                        { name: "机试", score: 100 },
+                        { name: "笔试", score: 38 },
+                    ],
+                },
+                {
+                    date: "2023-4-11",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 50 },
+                    ],
+                },
+                {
+                    date: "2023-4-21",
+                    subject: [
+                        { name: "机试", score: 92 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+            ],
+        },
+        {
+            name: "赵灿龙",
+            result: [
+                {
+                    date: "2023-3-31",
+                    subject: [
+                        { name: "机试", score: 90 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+                {
+                    date: "2023-4-4",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 51 },
+                    ],
+                },
+                {
+                    date: "2023-4-11",
+                    subject: [
+                        { name: "机试", score: 65 },
+                        { name: "笔试", score: 29 },
+                    ],
+                },
+                {
+                    date: "2023-4-21",
+                    subject: [
+                        { name: "机试", score: 50 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+            ],
+        },
+        {
+            name: "刘佳佳",
+            result: [
+                {
+                    date: "2023-3-31",
+                    subject: [
+                        { name: "机试", score: 75 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+                {
+                    date: "2023-4-4",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 45 },
+                    ],
+                },
+                {
+                    date: "2023-4-11",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 60 },
+                    ],
+                },
+                {
+                    date: "2023-4-21",
+                    subject: [
+                        { name: "机试", score: 50 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+            ],
+        },
+        {
+            name: "宋好影",
+            result: [
+                {
+                    date: "2023-3-31",
+                    subject: [
+                        { name: "机试", score: 75 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+                {
+                    date: "2023-4-4",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 62 },
+                    ],
+                },
+                {
+                    date: "2023-4-11",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 58 },
+                    ],
+                },
+                {
+                    date: "2023-4-21",
+                    subject: [
+                        { name: "机试", score: 65 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+            ],
+        },
+        {
+            name: "齐博超",
+            result: [
+                {
+                    date: "2023-3-31",
+                    subject: [
+                        { name: "机试", score: 95 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+                {
+                    date: "2023-4-4",
+                    subject: [
+                        { name: "机试", score: 75 },
+                        { name: "笔试", score: 65 },
+                    ],
+                },
+                {
+                    date: "2023-4-11",
+                    subject: [
+                        { name: "机试", score: 75 },
+                        { name: "笔试", score: 36 },
+                    ],
+                },
+                {
+                    date: "2023-4-21",
+                    subject: [
+                        { name: "机试", score: 95 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+            ],
+        },
+        {
+            name: "郭栋彬",
+            result: [
+                {
+                    date: "2023-3-31",
+                    subject: [
+                        { name: "机试", score: 85 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+                {
+                    date: "2023-4-4",
+                    subject: [
+                        { name: "机试", score: 99 },
+                        { name: "笔试", score: 67 },
+                    ],
+                },
+                {
+                    date: "2023-4-11",
+                    subject: [
+                        { name: "机试", score: 70 },
+                        { name: "笔试", score: 49 },
+                    ],
+                },
+                {
+                    date: "2023-4-21",
+                    subject: [
+                        { name: "机试", score: 90 },
+                        { name: "笔试", score: 0 },
+                    ],
+                },
+            ],
+        },
+    ];
+    let dataIndex = 0;
+    var option;
+    layui.use("table", function () {
+        var $ = layui.$;
+        showList();
+        initEcharts(dataIndex);
+        function showList() {
+            let html = "";
+            students.forEach((item, index) => {
+                html += `<button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal" dataBtnIndex = ${index}>${item.name}</button>`;
+            });
+            $("#studentBtn").html(html);
+        }
+        $("button").click(function () {
+            dataIndex = $(this).attr("dataBtnIndex");
+            initEcharts(dataIndex);
+        });
+        function initEcharts(dataIndex = 0) {
+            var myChart = echarts.init(document.getElementById("main"));
+            option = {
+                legend: {
+                    data: ["机试", "笔试"],
+                    top: "6%",
+                },
+                title: {
+                    text: `${students[dataIndex].name}的成绩柱状图`,
+                    left: "center",
+                },
+                xAxis: { type: "category", data: xData(dataIndex) },
+                yAxis: { type: "value" },
+                series: getScore(dataIndex),
+            };
+            option && myChart.setOption(option);
+        }
+        //获取X轴的数据
+        function xData(dataIndex) {
+            let res = students[dataIndex].result.map((item, index) => {
+                return item.date;
+            });
+            return res;
+        }
+        //获取成绩
+        function getScore(dataIndex) {
+            let jishiScore = students[dataIndex].result.map((item) => {
+                return item.subject.filter((item) => {
+                    return item.name == "机试";
+                })[0].score;
+            });
+            let bishiScore = students[dataIndex].result.map((item) => {
+                return item.subject.filter((item) => {
+                    return item.name == "笔试";
+                })[0].score;
+            });
+            return [
+                {
+                    label: {
+                        show: true,
+                        position: "top",
+                    },
+                    data: jishiScore,
+                    name: "机试",
+                    type: "bar",
+                    itemStyle: {
+                        normal: {
+                            color: function (item) {
+                                var indexColor = item.value;
+                                if (indexColor <= 50) {
+                                    return "red";
+                                } else {
+                                    return "blue";
+                                }
+                            },
+                        },
+                    },
+                },
+                {
+                    label: {
+                        show: true,
+                        position: "top",
+                    },
+                    data: bishiScore,
+                    name: "笔试",
+                    type: "bar",
+                    itemStyle: {
+                        normal: {
+                            color: function (item) {
+                                var indexColor = item.value;
+                                if (indexColor <= 50) {
+                                    return "red";
+                                } else {
+                                    return "green";
+                                }
+                            },
+                        },
+                    },
+                },
+            ];
+        }
+    });
+</script>
+
+</html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>

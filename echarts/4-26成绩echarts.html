@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<style>
+    #box {
+        width: 100%;
+        height: 400px;
+        border: 3px solid #ccc;
+        margin-top: 20px;
+        /* display: none; */
+    }
+
+    #main {
+        width: 100%;
+        height: 400px;
+        border: 3px solid #ccc;
+    }
+
+    button {
+        width: 70px;
+        height: 35px;
+        border: 1px solid pink;
+        background-color: pink;
+        margin-top: 5px;
+    }
+</style>
+
+<body>
+    <div id="main"></div>
+    <div id="box"></div>
+    <!-- <button id="toggle-btn">点击切换</button> -->
+</body>
+<script>
+    // $('#toggle-btn').click(function () {
+    //     $('#main').toggle();
+    //     $('#box').toggle();
+
+    // });
+
+    var myChart = echarts.init(document.getElementById('main'));
+    option = {
+        title: {
+            text: '柱状图成绩',
+        },
+        legend: {
+            data: ['第一周机试', '第二周笔试', '第二周机试', '第三周机试', '第四周笔试', '第四周机试',]
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+
+
+        calculable: true,
+        xAxis: [{
+            type: 'category',
+            data: ['陈静', '李泽', '赵灿龙', '刘佳佳', '宋好影', '齐博超', '郭栋彬', '董阳光', '李彦洋', '张亚哲', '刘振洲', '董帅磊',
+                '赵帅博',
+                '杨浩冰', '晋帅豪', '郑哲员', '赵宗福', '李泉澳'
+            ]
+        }],
+        yAxis: [{
+            type: 'value'
+        }],
+        series: [{
+            name: '第一周机试',
+            type: 'bar',
+            data: [65, 99, 90, 75, 75, 95, 85, 80, 85, 95, 85, 70, 70, 50, 85, 75, 70, 100],
+            markPoint: {
+                data: [{
+                    type: 'max',
+                    name: 'Max'
+                },
+                {
+                    type: 'min',
+                    name: 'Min'
+                }
+                ]
+            },
+            markLine: {
+                data: [{
+                    type: 'average',
+                    name: 'Avg'
+                }]
+            }
+        },
+        {
+            name: '第二周笔试',
+            type: 'bar',
+            data: [85, 38, 51, 45, 62, 65, 67, 61, 66, 0, 71, 67, 58, 66, 72, 85, 60, 66,],
+
+            markPoint: {
+                data: [{
+                    name: 'Max',
+                    value: 182.2,
+                    xAxis: 7,
+                    yAxis: 183
+                },
+                {
+                    name: 'Min',
+                    value: 2.3,
+                    xAxis: 11,
+                    yAxis: 3
+                }
+                ]
+            },
+            markLine: {
+                data: [{
+                    type: 'average',
+                    name: 'Avg'
+                }]
+            }
+        },
+        {
+            name: '第二周机试',
+            type: 'bar',
+            data: [35, 100, 70, 70, 70, 75, 99, 70, 65, 16, 66, 60, 70, 75, 75, 25, 70, 100,],
+
+            markPoint: {
+                data: [{
+                    name: 'Max',
+                    value: 182.2,
+                    xAxis: 7,
+                    yAxis: 183
+                },
+                {
+                    name: 'Min',
+                    value: 2.3,
+                    xAxis: 11,
+                    yAxis: 3
+                }
+                ]
+            },
+            markLine: {
+                data: [{
+                    type: 'average',
+                    name: 'Avg'
+                }]
+            }
+        },
+        {
+            name: '第三周机试',
+            type: 'bar',
+            data: [65, 70, 65, 70, 70, 75, 70, 73, 60, 70, 60, 68, 65, 60, 65, 65, 62, 80,],
+
+            markPoint: {
+                data: [{
+                    name: 'Max',
+                    value: 182.2,
+                    xAxis: 7,
+                    yAxis: 183
+                },
+                {
+                    name: 'Min',
+                    value: 2.3,
+                    xAxis: 11,
+                    yAxis: 3
+                }
+                ]
+            },
+            markLine: {
+                data: [{
+                    type: 'average',
+                    name: 'Avg'
+                }]
+            }
+        },
+        {
+            name: '第四周笔试',
+            type: 'bar',
+            data: [65, 50, 29, 60, 58, 36, 49, 41.5, 60, 52, 45, 46, 51, 65, 78, 34.5, 46, 57,],
+
+            markPoint: {
+                data: [{
+                    name: 'Max',
+                    value: 182.2,
+                    xAxis: 7,
+                    yAxis: 183
+                },
+                {
+                    name: 'Min',
+                    value: 2.3,
+                    xAxis: 11,
+                    yAxis: 3
+                }
+                ]
+            },
+            markLine: {
+                data: [{
+                    type: 'average',
+                    name: 'Avg'
+                }]
+            }
+        },
+        {
+            name: '第四周机试',
+            type: 'bar',
+            data: [75, 92, 50, 50, 65, 95, 90, 90, 75, 80, 70, 85, 80, 50, 80, 70, 70, 95,],
+
+            markPoint: {
+                data: [{
+                    name: 'Max',
+                    value: 182.2,
+                    xAxis: 7,
+                    yAxis: 183
+                },
+                {
+                    name: 'Min',
+                    value: 2.3,
+                    xAxis: 11,
+                    yAxis: 3
+                }
+                ]
+            },
+            markLine: {
+                data: [{
+                    type: 'average',
+                    name: 'Avg'
+                }]
+            }
+        },
+
+        ]
+    };
+    myChart.setOption(option);
+
+    // 。。。。。。。。。。
+    var myChart = echarts.init(document.getElementById('box'));
+
+    var option = {
+        title: {
+            text: '折线图成绩'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['第一周机试', '第二周笔试', '第二周机试', '第三周机试', '第四周笔试', '第四周机试',]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: '陈静',
+                type: 'line',
+                stack: 'Total',
+                data: [60, 85, 35, 65, 65, 75]
+            },
+            {
+                name: '赵灿龙',
+                type: 'line',
+                stack: 'Total',
+                data: [90, 51, 70, 65, 29, 50]
+            },
+            {
+                name: '齐博超',
+                type: 'line',
+                stack: 'Total',
+                data: [95, 65, 75, 75, 36, 95]
+            },
+            {
+                name: '董阳光',
+                type: 'line',
+                stack: 'Total',
+                data: [80, 61, 70, 73, 41.5, 90]
+            },
+            {
+                name: '张亚哲',
+                type: 'line',
+                stack: 'Total',
+                data: [95, 61, 75, 70, 52, 80]
+            },
+
+
+        ]
+    };
+    myChart.setOption(option);
+
+</script>
+
+</html>

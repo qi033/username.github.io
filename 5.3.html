@@ -12,10 +12,15 @@
 </head>
 <style>
     #main {
-        width: 400px;
-        height: 400px;
+        width: 800px;
+        height: 500px;
         border: 1px solid pink;
-        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
 
     }
 </style>
@@ -33,10 +38,27 @@
         { name: '德国', value: 44400 },
         { name: '英国', value: 39700 },
         { name: '法国', value: 38600 },
-        // ...
+
     ];
     var option = {
-        xAxis: {
+        label: {
+            show: true,
+            position: 'right',
+
+        },
+        graphic: [{
+            type: 'image',
+            id: 'icon',
+
+            left: 'right',
+            top: 'center',
+            style: {
+                image: 'https://img1.baidu.com/it/u=1919509102,1927615551&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1683219600&t=fd6227993e4ee5d64c055522f6632974',
+                width: 40,
+                height: 40
+            }
+        }],
+        xAxis: {    
             type: 'value'
         },
         yAxis: {
@@ -83,7 +105,7 @@
 
         // 根据value属性进行排序
         newData.sort(function (a, b) {
-            return a.value - b.value;
+            return b.value - a.value;
         });
 
         year++;

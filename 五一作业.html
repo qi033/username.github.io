@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/layui@2.6.8/dist/css/layui.css">
+    <script src="https://unpkg.com/layui@2.6.8/dist/layui.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+</head>
+<style>
+    .red {
+        color: red;
+    }
+
+    .purple {
+        color: purple;
+    }
+
+    #boxone {
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        top: 35%;
+        transform: translate(-50%, -20%);
+        background-color: rgb(0, 221, 255);
+        text-align: center;
+        display: none;
+        border-radius: 10px;
+    }
+
+    .layui-table thead th {
+        text-align: center;
+    }
+
+    .layui-table tbody th {
+        text-align: center;
+    }
+
+    #submits {
+        float: left;
+        margin-left: 10%;
+    }
+
+    #submit {
+        float: left;
+        margin-left: 10%;
+    }
+
+    #Shut_down {
+        float: right;
+        margin-right: 10%;
+
+    }
+
+    #main {
+        width: 800px;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* border: 1px solid pink; */
+        display: none;
+    }
+</style>
+
+<body>
+    &nbsp&nbsp搜 索：<div class="layui-input-inline" id="sosuoyou">
+        <input type="search" name="password" required lay-verify="required" placeholder="请输入" autocomplete="off"
+            class="layui-input" id="search" />
+
+    </div>
+    <button class="layui-btn layui-btn-normal" id="addStudents">添加学生</button>
+    <button class="layui-btn layui-btn-danger" id="delete-btn">全部删除</button>
+    <div id="boxone">
+        <br>
+        <h2>添加学生成绩</h2>
+        <br>
+        <form action="#" id="myForm">
+            姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：<input type="text" name="name" id="Name_one"
+                value="齐博超">
+            <br><br>
+
+            第一次机试：<input type="text" name="iphone" id="password" value="95">
+            <br><br>
+
+            第二周笔试：<input type="text" name="nick" id="birthday" value="65">
+            <br><br>
+
+            第二周机试：<input type="text" name="sex" id="number" value="75">
+            <br><br>
+
+            平&nbsp&nbsp&nbsp&nbsp均&nbsp&nbsp&nbsp&nbsp分：<input type="text" name="sex" id="types" value="70">
+            <br><br>
+
+            第三周机试：<input type="text" name="iphone" id="shisihao" value="75">
+            <br><br>
+
+            第三周笔试：<input type="text" name="nick" id="shibirthday" value="36">
+            <br><br>
+
+            第三周机试：<input type="text" name="sex" id="shinumber" value="95">
+            <br><br>
+
+            平&nbsp&nbsp&nbsp&nbsp均&nbsp&nbsp&nbsp&nbsp分：<input type="text" name="sex" id="shitypes" value="65.5">
+            <br><br>
+
+            周期平均分：<input type="text" name="sex" placeholder="教学周期平均分" id="zongtypes" value="72.0625">
+            <br><br>
+            <button class="layui-btn layui-btn-radius" id="submit">确定</button>
+            <button class="layui-btn layui-btn-radius" id="Shut_down">关闭</button>
+        </form>
+        <button class="layui-btn layui-btn-radius" id="submits">确定编辑</button>
+    </div>
+
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th rowspan="2"><input type="checkbox" name="" id="to"></th>
+                <th rowspan="2">姓名</th>
+                <th>3.31(星期五)</th>
+                <th colspan="3">4.7(星期五)</th>
+                <th>4.14(星期五)</th>
+                <th colspan="3">4.21(星期五)</th>
+                <th rowspan="2">教学周期平均分</th>
+                <th rowspan="2">操作</th>
+            </tr>
+            <tr>
+                <th>机试成绩</th>
+                <th>笔试成绩</th>
+                <th>机试成绩</th>
+                <th>平均分</th>
+                <th>机试成绩</th>
+                <th>笔试成绩</th>
+                <th>机试成绩</th>
+                <th>平均分</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+
+        </tbody>
+    </table>
+    <div id="main"></div>
+</body>
+<script>
+    var data = []
+    $(function () {
+        if (localStorage.getItem('clab')) {
+            data = JSON.parse(localStorage.getItem('clab'))
+        }
+        rendering()
+        many()
+        wumiaoFun()
+
+        // bianji()
+    })
+
+    //编辑
+    let i = 0
+    function eidt(i) {
+        console.log(i);
+        let abb = data[i]
+        $(function () {
+            $('#Name_one').val(abb.name),
+                $('#password').val(abb.diyici),
+                $('#birthday').val(abb.dierci),
+                $('#number').val(abb.disanci),
+                $('#types').val(abb.disici),
+                $('#shisihao').val(abb.diwuci),
+                $('#shibirthday').val(abb.diliuci),
+                $('#shinumber').val(abb.diqici),
+                $('#shitypes').val(abb.dibaci),
+                $('#zongtypes').val(abb.dijiuci)
+        })
+        $('#boxone').css('display', 'block')
+        $('#submit').css('display', 'none')
+        $('#submits').click(function () {
+
+
+            data[i] = {
+                name: $('#Name_one').val(),
+                diyici: $('#password').val(),
+                dierci: $('#birthday').val(),
+                disanci: $('#number').val(),
+                disici: $('#types').val(),
+                diwuci: $('#shisihao').val(),
+                diliuci: $('#shibirthday').val(),
+                diqici: $('#shinumber').val(),
+                dibaci: $('#shitypes').val(),
+                dijiuci: $('#zongtypes').val(),
+            }
+            localStorage.setItem('clab', JSON.stringify(data))
+            rendering()
+        })
+    }
+
+
+
+    //添加
+    $('#submit').click(function () {
+        $("h2").html("添加学生成绩");
+        event.preventDefault()
+        let abb = {
+            name: $('#Name_one').val(),
+            diyici: $('#password').val(),
+            dierci: $('#birthday').val(),
+            disanci: $('#number').val(),
+            disici: $('#types').val(),
+            diwuci: $('#shisihao').val(),
+            diliuci: $('#shibirthday').val(),
+            diqici: $('#shinumber').val(),
+            dibaci: $('#shitypes').val(),
+            dijiuci: $('#zongtypes').val(),
+        }
+        data.push(abb)
+        $('#boxone').css('display', 'none')
+        $('#submit').css('display', 'block')
+        localStorage.setItem('clab', JSON.stringify(data))
+        rendering()
+        many()
+
+    })
+    //渲染
+    function rendering() {
+        let html = ''
+        data.forEach((item, index) => {
+            html += `
+                    <tr>
+                    <td><input type="checkbox" class="genban"></td>
+                    <td>${item.name}</td>
+                    <td class="score">${item.diyici}</td>
+                    <td class="score">${item.dierci}</td>
+                    <td class="score">${item.disanci}</td>
+                    <td class="score">${item.disici}</td>
+                    <td class="score">${item.diwuci}</td>
+                    <td class="score">${item.diliuci}</td>
+                    <td class="score">${item.diqici}</td>
+                    <td class="score">${item.dibaci}</td>
+                    <td class="score">${item.dijiuci}</td>
+                    <td>
+                        <button class="layui-btn" onclick="eidt(${index})">编辑</button>
+                        <button class="layui-btn chakan" onclick='view(${index})'>查看成绩图标</button>
+                        <button class="layui-btn layui-btn-danger" data-index='${index}'onclick=shan()>删除</button>
+                    </td>
+                </tr>
+            `
+        })
+        $('tbody').html(html)
+        many()
+    }
+
+    //点击添加弹出添加框
+    $('#addStudents').click(function () {
+        $('#boxone').css('display', 'block')
+    })
+    //点击关闭隐藏添加框
+    $('#Shut_down').click(function () {
+        event.preventDefault()
+        $('#boxone').css('display', 'none')
+    })
+
+    function many() {
+        // 全选
+        $("#to").click(function () {
+            $(".genban").prop("checked", $(this).prop("checked"));
+
+        });
+        // 反选
+
+        $(".genban").click(function () {
+            if ($(".genban:checked").length == $(".genban").length) {
+                $("#to").prop("checked", true);
+            } else {
+                $("#to").prop("checked", false);
+            }
+        });
+        // 搜索
+
+        $("#search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+
+        // 50分以下红色90分以上紫色
+        $('.score').each(function () {
+            var score = parseInt($(this).text());
+            if (score < 50) {
+                $(this).addClass('red');
+            } else if (score >= 90) {
+                $(this).addClass('purple');
+            }
+        });
+
+    }
+    // 批量删除
+    $('#delete-btn').click(function () {
+        localStorage.clear();
+        location.reload(); //重新加载一下页面
+
+        rendering()
+    })
+
+    function shan() {
+        var bool = confirm("确定删除?")
+        if (bool) {
+            let index = event.target.dataset.index
+            data.splice(index, 1)
+            localStorage.setItem('clab', JSON.stringify(data))
+            rendering()
+        }
+    }
+    //查看
+    function view(i) {
+        console.log(data[i]);
+        $('#main').css('display', 'block')
+        icon(i)
+    }
+
+    function wumiaoFun() {
+        setTimeout(function () {
+            $('#main').fadeOut('slow');
+            clearTimeout(wumiaoFun()); // 清除定时器
+        }, 5000);
+    }
+</script>
+<script>
+    function icon(n) {
+        var myChart,
+            options,
+            index = 0;
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById("main"));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: `${data[n].name}考试成绩`,
+            },
+            tooltip: {},
+            legend: {
+                data: ["机试", "笔试"],
+            },
+            xAxis: {
+                data: [3.31, 4.7, 4.14, 4.21],
+            },
+            yAxis: {},
+            series: Score(index),
+
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        function Score(index) {
+            return [
+                {
+                    label: {
+                        show: true,
+                        position: "top",
+                    },
+                    data: chengji(),
+                    name: "机试",
+                    type: "bar",
+                },
+                {
+                    label: {
+                        show: true,
+                        position: "top",
+                    },
+                    data: hengji(),
+                    name: "笔试",
+                    type: "bar",
+                },
+            ];
+        }
+        function chengji() {
+            let a = [data[n].diyici, data[n].disanci, data[n].diwuci, data[n].diqici]
+            return a
+        }
+        function hengji() {
+            let a = [0, data[n].dierci, 0, data[n].diliuci]
+
+            return a;
+        }
+    }
+
+</script>
+
+</html>

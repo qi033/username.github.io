@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 密钥 -->
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "d3ac82479e3b26568f93bf6365c97d7f",
+        };
+    </script>
+    <!-- key -->
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=2.0&key=b3f383b4426f6e11324321264db50493"></script>
+
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+</head>
+<style>
+    #container {
+        width: 800px;
+        height: 800px;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+</body>
+<script>
+    var map = new AMap.Map("container", {
+        viewMode: '3D',
+        zoom: 15,
+        center: [113.428155, 34.774258],
+        // 113.383385, 34.7866
+        resizeEnable: true
+    });
+
+    // 创建纯文本标记
+    var text = new AMap.Text({
+        text: '吾悦广场',
+        anchor: 'center', // 设置文本标记锚点
+        draggable: true,
+        cursor: 'pointer',
+        angle: 10,
+        style: {
+            'padding': '.75rem 1.25rem',
+            'margin-bottom': '1rem',
+            'border-radius': '.25rem',
+            'background-color': 'white',
+            'width': '15rem',
+            'border-width': 0,
+            'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+            'text-align': 'center',
+            'font-size': '20px',
+            'color': 'blue'
+        },
+        position: [113.428155, 34.774258]
+    });
+
+    text.setMap(map);
+</script>
+
+</html>

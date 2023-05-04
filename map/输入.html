@@ -77,13 +77,13 @@
         });
         // 根据起终点名称规划驾车导航路线
         $('#btn1').click(function () {
-            var in1 = $('#tipinput').val(),
-                in3 = $('#tipinput2').val()
+            var llukuang = $('#tipinput').val(),
+                llukuang2 = $('#tipinput2').val()
             driving.search([{
-                keyword: in1,
+                keyword: llukuang,
             },
             {
-                keyword: in3,
+                keyword: llukuang2,
             }
             ], function (status, result) {
                 // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult

@@ -9,19 +9,23 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
     <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+
     <script type="text/javascript">
         window._AMapSecurityConfig = {
             serviceHost: 'http://xinhang.com/_AMapService',
         }
     </script>
+
     <script type="text/javascript">
         window._AMapSecurityConfig = {
             securityJsCode: 'd3ac82479e3b26568f93bf6365c97d7f',
         }
     </script>
+
     <script type="text/javascript"
         src="https://webapi.amap.com/maps?v=2.0&key=b3f383b4426f6e11324321264db50493&plugin=AMap.Driving"></script>
     <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+
     <style>
         #container {
             margin: auto;
@@ -56,13 +60,14 @@
 </head>
 
 <body>
-    <div id="container"></div>
-    <div id="panel"></div>
     请输入起始位：<input id="tipinput" />
     请输入目的地：<input id="tipinput2" />
     <br>
     <br>
     <button id="btn1">开始规划路线</button>
+    <div id="container"></div>
+    <div id="panel"></div>
+
     <script type="text/javascript">
         //基本地图加载
         var map = new AMap.Map("container", {
@@ -85,14 +90,15 @@
             {
                 keyword: llukuang2,
             }
-            ], function (status, result) {
-                // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
-                if (status === 'complete') {
-                    log.success('绘制驾车路线完成')
-                } else {
-                    log.error('获取驾车数据失败：' + result)
-                }
-            });
+            ],
+                function (status, result) {
+                    // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+                    if (status === 'complete') {
+                        log.success('绘制驾车路线完成')
+                    } else {
+                        log.error('获取驾车数据失败：' + result)
+                    }
+                });
         })
     </script>
 </body>

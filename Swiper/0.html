@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .not-gray {
+    bottom: 19px;
+    left: 15px
+  }
+
+  ul.not-gray {
+    margin-left: -1.5px;
+    font-size: 0;
+    transform: translateZ(0)
+  }
+
+  ul.not-gray li {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.4);
+    overflow: hidden;
+    cursor: pointer
+  }
+
+  ul.not-gray li.is-active {
+    width: 14px;
+    height: 14px;
+    margin: 1px;
+    background-color: transparent
+  }
+
+  ul.not-gray li.is-active .before {
+    position: absolute;
+    top: 0;
+    width: 14px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 7px 7px 0 0;
+    animation: eat-haha-up .8s;
+    transform-origin: center bottom
+  }
+
+  ul.not-gray li.is-active .before:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: #fff
+  }
+
+  ul.not-gray li.is-active .after {
+    position: absolute;
+    bottom: 0;
+    width: 14px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 0 0 7px 7px;
+    animation: eat-haha-down .8s;
+    transform-origin: center top
+  }
+
+  ul.not-gray li.is-active .after:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: #fff
+  }
+
+  ul.not-gray li.is-revert .before {
+    animation: eat-haha-down .8s
+  }
+
+  ul.not-gray li.is-revert .after {
+    animation: eat-haha-up .8s
+  }
+  
+</style>
+
+<body>
+  <ul class="not-gray">
+    <!--[-->
+    <li class="is-active">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <li class="">
+      <div class="before"></div>
+      <div class="after"></div>
+    </li>
+    <!--]-->
+  </ul>
+</body>
+
+</html>

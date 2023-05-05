@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            margin: 50px auto;
+            width: 1000px;
+            height: 600px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        span {
+            display: block;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-pagination {
+            text-align: left;
+            /* 将分页器内部元素向左对齐 */
+            width: 10px;
+            /* 设置分页器宽度 */
+            height: 10px;
+            /* 设置分页器高度 */
+        }
+
+        .swiper-pagination-bullet {
+            position: relative;
+            top: -10px;
+            left: 30px;
+            background-color: #eee;
+            width: 13px;
+            /* 设置分页器小圆点宽度 */
+            height: 13px;
+            /* 设置分页器小圆点高度 */
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #box1 {
+            position: relative;
+        }
+
+        #box1::after {
+            content: "大美女";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box2 {
+            position: relative;
+        }
+
+        #box2::after {
+            content: "二美女";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box3 {
+            position: relative;
+        }
+
+        #box3::after {
+            content: "小三";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box4 {
+            position: relative;
+        }
+
+        #box4::after {
+            content: "老四";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box5 {
+            position: relative;
+        }
+
+        #box5::after {
+            content: "老五";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box6 {
+            position: relative;
+        }
+
+        #box6::after {
+            content: "你是老六";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box7 {
+            position: relative;
+        }
+
+        #box7::after {
+            content: "小七";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box8 {
+            position: relative;
+        }
+
+        #box8::after {
+            content: "老八";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box9 {
+            position: relative;
+        }
+
+        #box9::after {
+            content: "老九";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 85%;
+            left: 19%;
+            transform: translate(-50%, -50%);
+        }
+
+        .swiper {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 2.5%;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 35px;
+            height: 25px;
+            font-size: 20px;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 15%;
+            padding: 13px;
+        }
+
+        .swiper-button-next {
+            position: absolute;
+            top: 550px;
+            left: 900px;
+        }
+
+        .swiper-button-prev {
+            position: absolute;
+            top: 550px;
+            left: 820px;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: rgb(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="box1">
+                <img src="https://img2.baidu.com/it/u=3800581244,1311359272&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=750"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box2">
+                <img src="https://img2.baidu.com/it/u=2250140389,4156737745&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box3">
+                <img src="https://img2.baidu.com/it/u=159292531,1977537638&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box4">
+                <img src="https://img1.baidu.com/it/u=2827210871,2417216557&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=861"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box5">
+                <img src="https://img1.baidu.com/it/u=3500027536,4166924484&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=675"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box6">
+                <img src="https://img2.baidu.com/it/u=3298222460,4229307566&fm=253&fmt=auto&app=138&f=JPEG?w=798&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box7">
+                <img src="https://img1.baidu.com/it/u=984412378,2377283125&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box8">
+                <img src="https://img0.baidu.com/it/u=4213020268,528967243&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box9">
+                <img src="https://img2.baidu.com/it/u=1255009824,2676447478&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    alt="" srcset="" />
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            autoplay: {
+                delay: 3000 /* 设置自动翻页间隔时间，单位为毫秒 */,
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>

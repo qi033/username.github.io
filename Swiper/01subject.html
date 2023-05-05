@@ -73,19 +73,55 @@
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-
+      <<div class="swiper-slide">
+        <img src="https://img2.baidu.com/it/u=3800581244,1311359272&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=750" alt=""
+          srcset="" />
     </div>
-    <div class="swiper-pagination"></div>
+    <div class="swiper-slide">
+      <img src="https://img2.baidu.com/it/u=2250140389,4156737745&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img2.baidu.com/it/u=159292531,1977537638&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img1.baidu.com/it/u=2827210871,2417216557&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=861" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img1.baidu.com/it/u=3500027536,4166924484&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=675" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img2.baidu.com/it/u=3298222460,4229307566&fm=253&fmt=auto&app=138&f=JPEG?w=798&h=500" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img1.baidu.com/it/u=984412378,2377283125&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img0.baidu.com/it/u=4213020268,528967243&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500" alt=""
+        srcset="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="https://img2.baidu.com/it/u=1255009824,2676447478&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt=""
+        srcset="" />
+    </div>
+  </div>
+  </div>
+  <div class="swiper-pagination"></div>
   </div>
   <script>
     var swiper = new Swiper('.mySwiper', {
       spaceBetween: 30,
       centeredSlides: true,
       mousewheel: true,
-       keyboard: true,
+      keyboard: true,
       direction: 'vertical',
       autoplay: {
-        delay: 2500,
+        delay: 1500,
         disableOnInteraction: false,
       },
 
@@ -129,22 +165,22 @@
       },
     })
 
-    $.ajax({
-      url: 'https://liu.zzgoodqc.cn/banner',
-      type: 'get',
-      dataType: 'json',
-      success: function (arr) {
-        // console.log(arr);
-        var str = ''
-        for (let i in arr.data) {
-          // console.log(arr.data);
-          str += `
-                    <div class="swiper-slide"><img src="${arr.data[i].img}" alt=""></div>
-                `
-        }
-        $('.swiper-wrapper').append(str)
-      }
-    })
+    // $.ajax({
+    //   url: 'https://liu.zzgoodqc.cn/banner',
+    //   type: 'get',
+    //   dataType: 'json',
+    //   success: function (arr) {
+    //     // console.log(arr);
+    //     var str = ''
+    //     for (let i in arr.data) {
+    //       // console.log(arr.data);
+    //       str += `
+    //                 <div class="swiper-slide"><img src="${arr.data[i].img}" alt=""></div>
+    //             `
+    //     }
+    //     $('.swiper-wrapper').append(str)
+    //   }
+    // })
   </script>
 </body>
 

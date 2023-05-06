@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<style>
+    #main {
+        width: 900px;
+        height: 500px;
+        margin: 30px auto;
+
+        background-color: #53535351;
+    }
+
+    button {
+        width: 70px;
+        height: 25px;
+        color: #fff;
+        border: 1px solid #0eb0c9;
+        background-color: #0eb0c9;
+        margin-bottom: 10px;
+        border-radius: 3px;
+    }
+
+    #box {
+        float: right;
+        margin-right: 22%;
+        margin-top: -27px;
+    }
+</style>
+
+<body>
+
+    <div id="box">
+        <button onclick="today()">今日</button>
+        <button onclick="yesterday()">昨天</button>
+        <button onclick="sevenDays()">近7日</button>
+        <button onclick="thirtyDays()">近30日</button>
+    </div>
+
+    <div id="main"></div>
+
+</body>
+<script>
+
+    // 初始化 echarts 实例
+    var chart = echarts.init(document.getElementById('main'));
+    var shij = [
+        '2000-4-01',
+        '2000-4-02',
+        '2000-4-03',
+        '2000-4-04',
+        '2000-4-05',
+        '2000-4-06',
+        '2000-4-07',
+        '2000-4-08',
+        '2000-4-09',
+        '2000-4-10',
+        '2000-4-11',
+        '2000-4-12',
+        '2000-4-13',
+        '2000-4-14',
+        '2000-4-15',
+        '2000-4-16',
+        '2000-4-17',
+        '2000-4-18',
+        '2000-4-19',
+        '2000-4-20',
+        '2000-4-21',
+        '2000-4-22',
+        '2000-4-23',
+        '2000-4-24']
+    var lanse = [
+        10, 20, 30, 12, 15,
+        184, 15, 654, 25, 19,
+        45, 32, 48, 56, 85,
+        75, 65, 51, 78, 95,
+        65, 85, 32, 95,
+    ]
+    var lvse = [
+        31, 54, 45, 66, 64,
+        44, 845, 36, 71, 57,
+        44, 59, 543, 71, 735,
+        935, 545, 74, 71, 535,
+        51, 56, 443, 835
+    ]
+    // 配置项
+    var option = {
+        color: ['#37A2FF', '#FF0087',],
+        title: {
+            text: '折线图示例'
+        },
+
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['PV', 'UV']
+        },
+        xAxis: {
+            type: 'category',
+            data: chengji()
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name: 'PV',
+            type: 'line',
+            symbolSize: 0,
+            smooth: 0.5,
+            data: hengji()
+        },
+        {
+            name: 'UV',
+            type: 'line',
+            symbolSize: 0,
+            smooth: 0.5,
+            data: hengji1()
+        }]
+    };
+    function chengji() {
+        let a = shij
+        return a
+    }
+    function hengji() {
+        let a = lanse
+        return a;
+    }
+    function hengji1() {
+        let a = lvse
+        return a;
+    }
+    // 使用刚指定的配置项和数据显示图表
+    chart.setOption(option);
+    function today() {
+        var shij = [
+            '01:00',
+            '02:00',
+            '03:00',
+            '04:00',
+            '05:00',
+            '06:00',
+            '07:00',
+            '08:00',
+            '09:00',
+            '10:00',
+            '11:00',
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+            '18:00',
+            '19:00',
+            '20:00',
+            '21:00',
+            '22:00',
+            '23:00',
+            '00:00'
+        ]
+        var lanse = [
+            10, 20, 30, 12, 15,
+            184, 15, 654, 25, 19,
+            45, 32, 48, 56, 85,
+            75, 65, 51, 78, 95,
+            65, 85, 32, 95,
+        ]
+        var lvse = [
+            61, 825, 94, 637, 86,
+            54, 86, 34, 531, 56,
+            46, 95, 339, 124, 55,
+            94, 523, 427, 14, 35,
+            421, 645, 427, 88
+        ]
+        // 配置项
+        var option = {
+            title: {
+                text: '折线图示例'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['PV', 'UV']
+            },
+            xAxis: {
+                type: 'category',
+                data: chengji()
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'PV',
+                symbolSize: 0,
+                smooth: 0.5,
+                type: 'line',
+                data: hengji()
+            },
+            {
+                name: 'UV',
+                type: 'line',
+                smooth: 0.5,
+                symbolSize: 0,
+                data: hengji1()
+            }]
+        };
+        function chengji() {
+            let a = shij
+            return a
+        }
+        function hengji() {
+            let a = lanse
+            return a;
+        }
+        function hengji1() {
+            let a = lvse
+            return a;
+        }
+        // 使用刚指定的配置项和数据显示图表
+        chart.setOption(option);
+    }
+    function yesterday() {
+        var shij = [
+            '01:00',
+            '02:00',
+            '03:00',
+            '04:00',
+            '05:00',
+            '06:00',
+            '07:00',
+            '08:00',
+            '09:00',
+            '10:00',
+            '11:00',
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
+            '18:00',
+            '19:00',
+            '20:00',
+            '21:00',
+            '22:00',
+            '23:00',
+            '24:00']
+        var lanse = [
+            150, 20, 30, 102, 15,
+            184, 15, 254, 25, 19,
+            45, 32, 48, 56, 85,
+            75, 65, 51, 78, 95,
+            65, 85, 32, 195,
+        ]
+        var lvse = [
+            100, 85, 49, 63, 67,
+            49, 87, 329, 61, 75,
+            84, 49, 83, 541, 55,
+            69, 745, 87, 21, 50,
+            221, 54, 445, 86
+        ]
+        // 配置项
+        var option = {
+            title: {
+                text: '折线图示例'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['PV', 'UV']
+            },
+            xAxis: {
+                type: 'category',
+                data: chengji()
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'PV',
+                type: 'line',
+                symbolSize: 0,
+                smooth: 0.5,
+
+                data: hengji()
+            },
+            {
+                name: 'UV',
+                type: 'line',
+                smooth: 0.5,
+                symbolSize: 0,
+                data: hengji1()
+
+            }]
+        };
+        function chengji() {
+            let a = shij
+            return a
+        }
+        function hengji() {
+            let a = lanse
+            return a;
+        }
+        function hengji1() {
+            let a = lvse
+            return a;
+        }
+        // 使用刚指定的配置项和数据显示图表
+        chart.setOption(option);
+    }
+    function sevenDays() {
+        var shij = [
+            '2003-1-01',
+            '2003-1-02',
+            '2003-1-03',
+            '2003-1-04',
+            '2003-1-05',
+            '2003-1-06',
+            '2003-1-07',
+        ]
+        var lanse = [
+            10, 20, 30, 12, 15,
+            184, 15
+        ]
+        var lvse = [
+            433, 547, 453, 69, 96,
+            74, 80
+        ]
+        // 配置项
+        var option = {
+            title: {
+                text: '折线图示例'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['PV', 'UV']
+            },
+            xAxis: {
+                type: 'category',
+                data: chengji()
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'PV',
+                type: 'line',
+                symbolSize: 0,
+                smooth: 0.5,
+
+                data: hengji()
+            },
+            {
+                name: 'UV',
+                type: 'line',
+                symbolSize: 0,
+                smooth: 0.5,
+
+                data: hengji1()
+            }]
+        };
+        function chengji() {
+            let a = shij
+            return a
+        }
+        function hengji() {
+            let a = lanse
+            return a;
+        }
+        function hengji1() {
+            let a = lvse
+            return a;
+        }
+        // 使用刚指定的配置项和数据显示图表
+        chart.setOption(option);
+    }
+    function thirtyDays() {
+        var shij = [
+            '2004-3-01',
+            '2004-3-02',
+            '2004-3-03',
+            '2004-3-04',
+            '2004-3-05',
+            '2004-3-06',
+            '2004-3-07',
+            '2004-3-08',
+            '2004-3-09',
+            '2004-3-10',
+            '2004-3-11',
+            '2004-3-12',
+            '2004-3-13',
+            '2004-3-14',
+            '2004-3-15',
+            '2004-3-16',
+            '2004-3-17',
+            '2004-3-18',
+            '2004-3-19',
+            '2004-3-20',
+            '2004-3-21',
+            '2004-3-22',
+            '2004-3-23',
+            '2004-3-24',
+            '2004-3-25',
+            '2004-3-26',
+            '2004-3-27',
+            '2004-3-28',
+            '2004-3-29',
+            '2004-3-30',
+        ]
+        var lanse = [
+            10, 20, 30, 12, 15,
+            184, 15, 654, 25, 19,
+            45, 32, 48, 56, 85,
+            75, 65, 51, 78, 95,
+            65, 85, 32, 95,
+            78, 95,
+            65, 85, 32, 95,
+        ]
+        var lvse = [
+            721, 535, 64, 736, 36,
+            44, 85, 36, 51, 745,
+            45, 94, 353, 152, 52,
+            39, 225, 37, 31, 53,
+            18, 35, 44, 845, 196, 547,
+            18, 563, 446, 83,
+        ]
+        // 配置项
+        var option = {
+            title: {
+                text: '折线图示例'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['PV', 'UV']
+            },
+            xAxis: {
+                type: 'category',
+                data: chengji()
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'PV',
+                symbolSize: 0,
+                smooth: 0.5,
+
+                type: 'line',
+                data: hengji()
+            },
+            {
+                name: 'UV',
+                type: 'line',
+                symbolSize: 0,
+                smooth: 0.5,
+
+                data: hengji1()
+            }]
+        };
+        function chengji() {
+            let a = shij
+            return a
+        }
+        function hengji() {
+            let a = lanse
+            return a;
+        }
+        function hengji1() {
+            let a = lvse
+            return a;
+        }
+        // 使用刚指定的配置项和数据显示图表
+        chart.setOption(option);
+    }
+</script>
+
+</html>

@@ -404,20 +404,20 @@
     });
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var imgList = document.querySelectorAll("img");
-        for (var i = 0; i < imgList.length; i++) {
-            imgList[i].addEventListener('load', function () {
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', this.src, true);
-                xhr.setRequestHeader('Referer', 'http://www.chinapost.com.cn/html1/folder/181312/8171-1.htm');
-                xhr.send(null);
-            }, false);
-        }
-    });
 </script>
 <script>
     $(document).ready(function () {
+        document.addEventListener("DOMContentLoaded", function () {
+            var imgList = document.querySelectorAll("img");
+            for (var i = 0; i < imgList.length; i++) {
+                imgList[i].addEventListener('load', function () {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', this.src, true);
+                    xhr.setRequestHeader('Referer', 'http://www.chinapost.com.cn/');
+                    xhr.send(null);
+                }, false);
+            }
+        });
         // 默认显示第一个tab和对应的内容
         $('.tab:first').addClass('active');
         $('.panel:first').addClass('active').show();

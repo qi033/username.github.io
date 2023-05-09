@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 链接 -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <!-- 地图链接 -->
+    <script src="https://www.makeapie.cn/dep/echarts/map/js/china.js"></script>
+    <!-- <script src="./customed.js"></script> -->
+    <link rel="stylesheet" href="./postal.css">
+    <link rel="stylesheet" href="./postal.scss">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div id="zuidatadie">
+        <div id="zuida">
+            <div id="box">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <select name="city" id="city" class="dropdown">
+                                <option value="">中国邮政储蓄银行</option>
+                                <option value="">中国邮政储蓄银行1</option>
+                                <option value="">中国邮政储蓄银行2</option>
+                            </select>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">
+                            <select name="city" id="city">
+                                <option value="">集团工会及直属单位</option>
+                                <option value="">集团工会及直属单位1</option>
+                                <option value="">集团工会及直属单位2</option>
+                            </select>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="##">
+                            <select name="city" id="city" class="xialakuang">
+                                <option value="">各地邮政</option>
+                                <option value="">各地邮政1</option>
+                                <option value="">各地邮政2</option>
+                            </select>
+                        </a>
+                    </li>
+                    <li><a href="">English</a></li>
+                </ul>
+            </div>
+
+            <div id="danghang">
+                <div id="imgs">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/200568120.png" alt="">
+                </div>
+                <div id="navs">
+                    <ul>
+                        <li><a href="">首页</a></li>
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="">新闻中心</a></li>
+                        <li><a href="">党建时空</a></li>
+                        <li><a href="">产品服务</a></li>
+                        <li><a href="">社会责任</a></li>
+                        <li><a href="">企业文化</a></li>
+                    </ul>
+                </div>
+                <div id="danghang1">
+                    <input type="text" value="666">
+                    <button>搜索</button>
+                </div>
+
+            </div>
+
+            <div id="lunbotu">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img
+                                src="https://img1.baidu.com/it/u=2506480449,932689942&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1683651600&t=ea4a9180f5947f11895187883f1c2a99"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img0.baidu.com/it/u=3724454706,569015499&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1683651600&t=abd29e0a0b72bab53b4680d21ad421a2"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img2.baidu.com/it/u=1084793630,3329904077&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img2.baidu.com/it/u=2258584090,3849039024&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img1.baidu.com/it/u=2769286562,624687895&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img2.baidu.com/it/u=2868493967,4077867108&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                alt=""></div>
+                        <div class="swiper-slide">
+                            <img src="https://img0.baidu.com/it/u=3466066415,3240972559&fm=253&fmt=auto?w=1280&h=800"
+                                alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://img0.baidu.com/it/u=3880199719,2523752885&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                                alt="">
+
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+            <div id="tuwen">
+                <div class="tuwen1">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677353.png" alt="">
+                    <h5>邮务业务</h5>
+                </div>
+                <div class="tuwen1">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677354.png" alt="">
+                    <h5>快递业务</h5>
+                </div>
+                <div class="tuwen1">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677355.png" alt="">
+                    <h5>银行业务</h5>
+                </div>
+                <div class="tuwen1">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677355.png" alt="">
+                    <h5>保险业务</h5>
+                </div>
+                <div class="tuwen1">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677357.png" alt="">
+                    <h5>保险业务</h5>
+                </div>
+                <div class="tuwen1">
+                    <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677358.png" alt="">
+                    <h5>网上商城</h5>
+                </div>
+            </div>
+            <div id="jituan">
+                <div id="zuobian">
+                    <div class="swiper mySwiper">
+
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="https://img1.baidu.com/it/u=2506480449,932689942&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1683651600&t=ea4a9180f5947f11895187883f1c2a99"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img0.baidu.com/it/u=3724454706,569015499&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1683651600&t=abd29e0a0b72bab53b4680d21ad421a2"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img2.baidu.com/it/u=1084793630,3329904077&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img2.baidu.com/it/u=2258584090,3849039024&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img1.baidu.com/it/u=2769286562,624687895&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img2.baidu.com/it/u=2868493967,4077867108&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img2.baidu.com/it/u=3261542258,957825875&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://img0.baidu.com/it/u=3880199719,2523752885&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                                    alt="">
+                                <p>弘扬五四精神 绽放青春风采</p>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <div id="youbian">
+
+                    <div id="tabs">
+                        <div class="tab active">信息公告</div>
+                        <div class="tab">采购公告公示</div>
+                        <div class="tab">预决算公开</div>
+                        <div class="tab">预决算公开</div>
+                    </div>
+                    <div class="xian"></div>
+                    <div id="content">
+                        <div class="panel active">
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                        </div>
+                        <div class="panel">
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+
+                        </div>
+                        <div class="panel">
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                        </div>
+                        <div class="panel">
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="youzheng">
+                <div id="zuobian1">
+                    <span></span>
+                    <h3>邮政视频</h3>
+                    <div class="xian"></div>
+                    <video controls="" width="100%" height="274"
+                        src="http://v.ctvpost.com/res/ChinaPostVideo/video/23041/2020_2.mp4" width="486">&nbsp;</video>
+                    <p>. 强邮争先锋 建功新时代</p>
+                    <p>. 了不起的中国，不一样的邮政</p>
+                </div>
+
+                <div id="youbian1">
+                    <div id="tabsyi">
+                        <div class="tabyi active">信息公告</div>
+                        <div class="tabyi">采购公告公示</div>
+                        <div class="tabyi">预决算公开</div>
+                        <div class="tabyi">预决算公开</div>
+                    </div>
+                    <div class="xian"></div>
+                    <div id="contentyi">
+                        <div class="panelyi active">
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                            <p>邮储银行党委举办主题教育读书班</p>
+                            <span>2023-05-06</span>
+                        </div>
+                        <div class="panelyi">
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+                            <p>中邮保险价值转型成效显著</p>
+                            <span>2023-05-06</span>
+
+                        </div>
+                        <div class="panelyi">
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                            <p>中国邮政助力法院审判执行质效提高实现双赢多赢共赢</p>
+                            <span>2023-05-06</span>
+                        </div>
+                        <div class="panelyi">
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+                            <p>中国邮政集团有限公司任免通知</p>
+                            <span>2023-02-22</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="wangdian">
+                <div id="leftbian">
+                    <span></span>
+                    <h3>邮政网点</h3>
+                    <div class="xian"></div>
+
+                    <div id="diaoenen">
+                        <p><img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/2012677420.jpg"
+                                alt="">邮政官网新增邮政营业网点公示信息</p>
+                        <p>查看更多</p>
+                    </div>
+                    <div id="wocaole"></div>
+                </div>
+                <div id="rightbian">
+                    <span></span>
+                    <h3>客服热线</h3>
+                    <div class="xian"></div>
+                    <div id="aiaifan">
+                        <ul>
+                            <li>
+                                <p>邮政业务</p>
+                                <b>11185</b>
+                            </li>
+                            <li>
+                                <p>邮储银行</p>
+                                <b>95580</b>
+                            </li>
+                            <li>
+                                <p>速递物流</p>
+                                <b>11183</b>
+                            </li>
+                            <li>
+                                <p>中邮保险</p>
+                                <b>4008909999</b>
+                            </li>
+                            <li>
+                                <p>中邮证券</p>
+                                <b>4008888005</b>
+                            </li>
+                        </ul>
+                        <button>举报专区</button>
+                    </div>
+                    <div id="aiaifanyi">
+                        <span></span>
+                        <h3>客服热线</h3>
+                        <div class="xian"></div>
+                        <div class="jieshu">
+                            <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/1813129448.jpg" alt="">
+                            <p>中国邮政微信订阅号</p>
+                        </div>
+                        <div class="jieshu">
+                            <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/1813478632.jpg" alt="">
+                            <p>中国邮政微信服务号</p>
+                        </div>
+                        <div class="jieshu">
+                            <img src="http://www.chinapost.com.cn/res/ChinaPostJT/structure/1814288693.jpg" alt="">
+                            <p>中国邮政官方微博</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="Footer">
+            <div id="Footer1">
+                <ul>
+                    <li><a href="">友情链接：</a></li>
+                    <li><a href="">中国政府网</a></li>
+                    <li><a href="">财政部</a></li>
+                    <li><a href="">交通运输部</a></li>
+                    <li><a href="">国家邮政局</a></li>
+                </ul>
+            </div>
+            <div id="Footer2">
+                <p>中国邮政集团有限公司版权所有&nbsp&nbsp 京ICP备15035540号&nbsp&nbsp 京公网安备110401400185&nbsp&nbsp 联系我们</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        autoplay: {
+            delay: 1000,//1秒切换一次
+        },
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // 默认显示第一个tab和对应的内容
+        $('.tab:first').addClass('active');
+        $('.panel:first').addClass('active').show();
+
+        // 监听tab的hover事件
+        $('#tabs .tab').hover(
+            function () {
+                // 鼠标移入时，先隐藏所有内容面板和选中状态
+                $('#content .panel').removeClass('active').hide();
+                $('#tabs .tab').removeClass('active');
+
+                // 显示当前tab对应的内容面板和选中状态
+                var index = $(this).index();
+                $('#content .panel:eq(' + index + ')').addClass('active').show();
+                $(this).addClass('active');
+            },
+            function () {
+                // 鼠标移出时，重新显示当前选中的tab对应的内容面板和选中状态
+                var index = $('.tab.active').index();
+                $('#content .panel:eq(' + index + ')').addClass('active').show();
+                $('.tab.active').addClass('active');
+            }
+        );
+    });
+
+    $(document).ready(function () {
+        // 默认显示第一个tab和对应的内容
+        $('.tabyi:first').addClass('active');
+        $('.panelyi:first').addClass('active').show();
+
+        // 监听tab的hover事件
+        $('#tabsyi .tabyi').hover(
+            function () {
+                // 鼠标移入时，先隐藏所有内容面板和选中状态
+                $('#contentyi .panelyi').removeClass('active').hide();
+                $('#tabsyi .tabyi').removeClass('active');
+
+                // 显示当前tab对应的内容面板和选中状态
+                var index = $(this).index();
+                $('#contentyi .panelyi:eq(' + index + ')').addClass('active').show();
+                $(this).addClass('active');
+            },
+            function () {
+                // 鼠标移出时，重新显示当前选中的tab对应的内容面板和选中状态
+                var index = $('.tabyi.active').index();
+                $('#contentyi .panelyi:eq(' + index + ')').addClass('active').show();
+                $('.tabyi.active').addClass('active');
+            }
+        );
+    });
+</script>
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById("wocaole"));
+
+    // 指定图表的配置项和数据
+    var option = (window.dataList = [
+
+        { name: "澳门", value: 18 },
+        { name: "香港", value: 273 },
+        { name: "台湾", value: 153 },
+        { name: "新疆", value: 76 },
+        { name: "宁夏", value: 75 },
+        { name: "青海", value: 18 },
+        { name: "甘肃", value: 134 },
+        { name: "陕西", value: 248 },
+        { name: "西藏", value: 1 },
+        { name: "云南", value: 176 },
+        { name: "贵州", value: 14699 },
+        { name: "四川", value: 543 },
+        { name: "重庆", value: 576 },
+        { name: "海南", value: 168 },
+        { name: "广西", value: 254 },
+        { name: "广东", value: 1407 },
+        { name: "湖南", value: 1018 },
+        { name: "湖北", value: 67 },
+        { name: "河南", value: 1 },
+        { name: "山东", value: 765 },
+        { name: "江西", value: 936 },
+        { name: "福建", value: 307 },
+        { name: "安徽", value: 990 },
+        { name: "浙江", value: 1237 },
+        { name: "江苏", value: 633 },
+        { name: "上海", value: 394 },
+        { name: "黑龙江", value: 484 },
+        { name: "吉林", value: 93 },
+        { name: "辽宁", value: 126 },
+        { name: "内蒙古", value: 75 },
+        { name: "山西", value: 133 },
+        { name: "河北", value: 319 },
+        { name: "天津", value: 137 },
+        { name: "北京", value: 512 },
+    ]);
+    var option = {
+        color: ['#82B87A'],
+        tooltip: {
+            triggerOn: "mousemove",
+            formatter: function (e, t, n) {
+                return ".5" == e.value
+                    ? e.name + "：有疑似病例"
+                    : e.seriesName + "<br />" + e.name + "：" + e.value;
+            },
+        },
+        // #82B87A
+        geo: {
+            map: "china",
+            roam: !1,
+            scaleLimit: {
+                min: 1,
+                max: 2,
+            },
+            zoom: 1.23,
+            top: 120,
+            label: {
+                normal: {
+                    show: !0,
+                    fontSize: "14",
+                    color: "rgba(0,0,0,0.7)",
+                },
+            },
+            itemStyle: {
+                normal: {
+                    //shadowBlur: 50,
+                    //shadowColor: 'rgba(0, 0, 0, 0.2)',
+                    borderColor: "rgba(0, 0, 0, 0.2)",
+                },
+                emphasis: {
+                    areaColor: "#f2d5ad",
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    borderWidth: 0,
+                },
+            },
+        },
+        series: [
+            {
+                name: "确诊病例",
+                type: "map",
+                geoIndex: 0,
+                data: window.dataList,
+            },
+        ],
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</html>

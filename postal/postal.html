@@ -11,11 +11,11 @@
     <!-- 地图链接 -->
     <script src="https://www.makeapie.cn/dep/echarts/map/js/china.js"></script>
 
-    <link rel="stylesheet" href="./postal.css">
-    <!-- <link rel="stylesheet" href="https://qi033.github.io/username.github.io/postal/postal.css"> -->
+    <!-- <link rel="stylesheet" href="./postal.css"> -->
+    <link rel="stylesheet" href="https://qi033.github.io/username.github.io/postal/postal.css">
 
-    <link rel="stylesheet" href="./postal.scss">
-    <!-- <link rel="stylesheet" href="https://qi033.github.io/username.github.io/postal/postal.scss"> -->
+    <!-- <link rel="stylesheet" href="./postal.scss"> -->
+    <link rel="stylesheet" href="https://qi033.github.io/username.github.io/postal/postal.scss">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
 
@@ -401,6 +401,19 @@
         autoplay: {
             delay: 1000,//1秒切换一次
         },
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var imgList = document.querySelectorAll("img");
+        for (var i = 0; i < imgList.length; i++) {
+            imgList[i].addEventListener('load', function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', this.src, true);
+                xhr.setRequestHeader('Referer', 'http://www.chinapost.com.cn/html1/folder/181312/8171-1.htm');
+                xhr.send(null);
+            }, false);
+        }
     });
 </script>
 <script>

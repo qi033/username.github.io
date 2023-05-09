@@ -159,10 +159,10 @@ ul li {
     margin: 10px auto;
 }
 
-#tupianimg img {
-    position: sticky;
-    top: 1930px;
-    left: 100px;
+#tupianimg {
+    position: absolute;
+    top: 1930%;
+    right: 20%;
 }
 
 #lunbotu.swiper {
@@ -291,7 +291,8 @@ ul li {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    border-left: 4px solid #18AE66;
+    border-left: 5px solid #18AE66;
+    border-radius: 3px;
 }
 
 #zuobian1 h3 {
@@ -321,7 +322,6 @@ ul li {
     text-align: center;
     font-size: 18px;
     background: #fff;
-    /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -413,8 +413,6 @@ ul li {
 }
 
 #wangdian {
-    // border: 1px solid pink;
-    // height: 400px;
     width: 97%;
     margin-top: 20px;
 }
@@ -427,7 +425,6 @@ ul li {
 #leftbian {
     width: 70%;
     // border: 1px solid pink;
-
 }
 
 #leftbian .xian {
@@ -442,7 +439,8 @@ ul li {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    border-left: 4px solid #18AE66;
+    border-left: 5px solid #18AE66;
+    border-radius: 3px;
 }
 
 #leftbian h3 {
@@ -473,6 +471,7 @@ ul li {
     margin-top: 20px;
     height: 35px;
     border-radius: 4px;
+    color: #fff;
 }
 
 #rightbian #aiaifan ul li p {
@@ -495,7 +494,8 @@ ul li {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    border-left: 4px solid #18AE66;
+    border-radius: 3px;
+    border-left: 5px solid #18AE66;
 }
 
 #rightbian h3 {
@@ -535,7 +535,8 @@ ul li {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    border-left: 4px solid #18AE66;
+    border-radius: 3px;
+    border-left: 5px solid #18AE66;
 }
 
 #aiaifanyi .xian {
@@ -545,8 +546,7 @@ ul li {
 #Footer {
     width: $kuai;
     background-color: $back;
-    // height: 50px;
-    margin-top: 50px;
+
 }
 
 #Footer ul {

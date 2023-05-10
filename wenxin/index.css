@@ -113,6 +113,10 @@ a:hover {
   justify-content: space-around;
 }
 
+.xiangbudaole:hover {
+  background-color: hsla(0, 0%, 100%, 0.211);
+}
+
 .xiangbudaole {
   width: 205px;
   height: 56px;

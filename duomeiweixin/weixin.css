@@ -1,0 +1,268 @@
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+#box {
+  width: 100%;
+  height: 840px;
+  background-color: #2AAE67;
+  border-radius: 0px 0px 35% 35%;
+  position: absolute;
+}
+
+#box1 {
+  padding-right: 10%;
+  margin-top: 50px;
+  float: right;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#box1 p {
+  padding-left: 10px;
+  color: hsla(0, 0%, 100%, 0.6);
+  padding-right: 10px;
+}
+
+#box2 {
+  text-align: center;
+}
+
+#boxre {
+  width: 31%;
+  position: relative;
+  top: 20%;
+  left: 49%;
+  transform: translate(-50%);
+}
+
+.xian {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #42B778;
+}
+
+#kaishile {
+  width: 458px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: #DEF2E7;
+  line-height: 35px;
+}
+
+.banner__update-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.banner__update-content span {
+  float: right;
+}
+
+#boxsan {
+  width: 50%;
+  height: 200px;
+  margin: auto;
+  margin-top: 15%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#boxsan .yiersansiwu:hover {
+  background-color: hsla(0, 0%, 100%, 0.211);
+}
+
+.yiersansiwu {
+  line-height: 30px;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: hsla(0, 0%, 100%, 0.07);
+  color: #B3E2C9;
+}
+
+.yiersansiwu img {
+  margin-top: 25%;
+  width: 20px;
+  height: 20px;
+}
+
+#boxsi {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.xiangbudaole:hover {
+  background-color: hsla(0, 0%, 100%, 0.211);
+}
+
+.xiangbudaole {
+  width: 205px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  line-height: 56px;
+  background-color: #fff;
+  background-color: hsla(0, 0%, 100%, 0.07);
+  color: hsla(0, 0%, 100%, 0.9);
+  border-radius: 8px;
+}
+
+.xiangbudaole p {
+  padding-left: 5px;
+}
+
+.xiangbudaole img {
+  margin-top: 19px;
+  width: 20px;
+  height: 20px;
+}
+
+#xiabianyi {
+  margin: auto;
+  width: 70%;
+}
+
+#xiabian {
+  width: 100%;
+  height: 135%;
+  background-color: #F7F7F7;
+  margin-top: 15%;
+}
+
+#xiabian1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#xiabian2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+#xiabian3 {
+  display: flex;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#xiabian4 {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#xiabian5 {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.xiabian1_1 img {
+  width: 40px;
+  height: 40px;
+  padding-top: 50px;
+}
+
+.xiabian1_1 {
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  height: 200px;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.tuwen {
+  line-height: 27px;
+  width: 200px;
+  height: 200px;
+}
+
+#xiabian5 .xiabian1_2:nth-child(4) {
+  background-color: #F7F7F7;
+}
+
+.xiabian1_2 {
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  line-height: 200px;
+  height: 200px;
+  background-color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+#zuixiabian1 {
+  background-color: white;
+  background-color: 100%;
+}
+
+#zuixiabian {
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#navbox ul {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#navbox ul {
+  display: flex;
+  justify-content: center;
+}
+
+#navbox ul li a {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: 1px solid #000;
+  text-align: center;
+  color: #4C4C4C;
+}
+
+#navbox ul li:nth-child(1) a {
+  border-left: none;
+}
+
+body {
+  background-color: #F7F7F7;
+}
+
+#jieshu {
+  color: #7F7F7F;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=index.css.map */

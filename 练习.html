@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    #myDiv {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+
+    .step1 {
+        left: 0;
+        animation: moveRight 3s forwards;
+    }
+
+    .step2 {
+        right: 0;
+        animation: moveLeft 3s forwards;
+    }
+
+    .step3 {
+        width: 9px;
+        height: 9px;
+        animation: shrink 2s forwards;
+    }
+
+    .step4 {
+        width: 5px;
+        animation: changeColor 2s forwards;
+
+    }
+
+    @keyframes moveRight {
+        100% {
+            left: calc(100% - 100px);
+        }
+    }
+
+    @keyframes moveLeft {
+        100% {
+            left: 0;
+        }
+    }
+
+    @keyframes shrink {
+        100% {
+            width: 0px;
+            height: 0px;
+        }
+    }
+
+    @keyframes changeColor {
+        100% {
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+        }
+    }
+</style>
+
+<body>
+    <div id="myDiv" class="step1"></div>
+</body>
+<script>
+    var myDiv = document.getElementById("myDiv");
+    function step1() {
+        myDiv.classList.add("step1");
+
+    }
+    function step2() {
+        myDiv.classList.remove("step1");
+        myDiv.classList.add("step2");
+    }
+
+    function step3() {
+        myDiv.classList.remove("step2");
+        myDiv.classList.add("step3");
+    }
+
+    function step4() {
+        myDiv.classList.remove("step3");
+        myDiv.classList.add("step4");
+        console.log(3112)
+    }
+
+    setTimeout(step1, 0);
+    setTimeout(step2, 3000);
+    setTimeout(step3, 6000);
+    setTimeout(step4, 8000);
+</script>
+
+</html>

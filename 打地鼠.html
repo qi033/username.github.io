@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            margin: 100px auto;
+            width: 800px;
+            height: 800px;
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            width: 100px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .con {
+            box-shadow: 0px 0px 40px 8px rgba(44, 44, 44, 0.48);
+            border: 2px solid rgba(44, 44, 44, 0.48);
+            width: 600px;
+            height: 600px;
+            /* margin-left: 100px; */
+            border-radius: 20px;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* margin-top: 100px; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        h1 {
+            font-size: 60px;
+            font-family: STXingkai;
+            color: rgb(0, 174, 255);
+        }
+
+        .hole {
+            box-shadow: 0px 0px 41px 3px rgba(44, 44, 44, 0.48);
+            border: 2px solid rgba(44, 44, 44, 0.48);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: url("https://www.jq22.com/demo/gamedadishu201910110114/img/hole.png") no-repeat;
+            background-size: 200px 200px;
+        }
+
+        .btn {
+
+            width: 130px;
+            height: 50px;
+            font-size: 25px;
+            background-color: rgb(0, 174, 255);
+            ;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        .hole img.mouse {
+            display: none;
+            padding-top: 50px;
+            cursor: pointer;
+        }
+
+        .hole img.boom {
+            display: none;
+            padding-top: 10px;
+            cursor: pointer;
+        }
+
+        .hole img.cat {
+            display: none;
+            padding-top: 40px;
+            cursor: pointer;
+        }
+
+        #time {
+            width: 150px;
+            height: 50px;
+            font-size: 25px;
+            font-family: '楷体';
+            font-weight: 600;
+            line-height: 50px;
+            position: absolute;
+            top: 120px;
+            left: 260px;
+        }
+
+        #fraction {
+            width: 150px;
+            height: 50px;
+            font-size: 25px;
+            font-family: '楷体';
+            font-weight: 600;
+            line-height: 50px;
+            position: absolute;
+            top: 120px;
+            right: 240px;
+        }
+
+        .fraction,
+        .time {
+            font-weight: 600;
+            font-size: 25px;
+            font-family: '楷体';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>打地鼠</h1>
+        <button class="btn">开始游戏</button>
+        <div id="fraction">总得分：<span class="fraction"></span></div>
+        <div id="time">倒计时：<span class="time"></span></div>
+        <div class="con">
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+            <div class="hole">
+                <img src="https://free.wzznft.com/i/2023/05/11/uopaqf.png" alt="" class="cat" width="130px"
+                    height="130px" style="border-radius: 50%" />
+                <img src="https://free.wzznft.com/i/2023/05/11/uoozxz.png" class="mouse" alt="" width="110px"
+                    height="110px" />
+            </div>
+        </div>
+
+</body>
+<script>
+    $(function () {
+        //定时器
+        var timer = null;
+        // 获取全部的坑
+        var hole = $(".hole");
+        // 判断是否开始游戏
+        var judge = false
+        // 给开始按钮添加事件
+        $(".btn").on("click", function () {
+            if (judge == true) {
+                alert('游戏已开始')
+                return
+            }
+            judge = true
+            // 给倒计时赋值
+            $(".time").html("60秒");
+            //倒计时
+            var countDowns = setInterval(countDown, 1000);
+            // 声明的倒计时时间
+            var timeing = 60;
+            // 倒计时函数
+            function countDown() {
+                timeing--;
+                $(".time").html(timeing + "秒");
+                //判断 时间 为零时
+                if (timeing === 0) {
+                    // 总分
+                    var totalScore = $(".fraction").html();
+                    // 清除倒计时定时器
+                    clearInterval(countDowns);
+                    // 清除老鼠定时器
+                    clearInterval(timer);
+                    // 弹出分数
+                    alert(`游戏结束\n您的总分为：${totalScore}分`);
+                    judge = false
+                    //所有隐藏
+                    hole.children().stop().hide();
+                    // 分数清零
+                    $('.fraction').html('')
+                    //倒计时清零
+                    $(".time").html("");
+                }
+            }
+            timer = setInterval(mouseout, 1000);
+
+            // 定时器速度
+            var speed = 1000;
+            // 老鼠定时器 
+            function mouseout() {
+                // 分数
+                var fraction = $(".fraction").html();
+                //判断分数改变速度
+                if (fraction <= 10) {
+                    clearInterval(timer);
+                    speed = 2500;
+                    timer = setInterval(mouseout, speed);
+                } else if (fraction >= 20 && fraction < 30) {
+                    clearInterval(timer);
+                    speed = 2000;
+                    timer = setInterval(mouseout, speed);
+                } else if (fraction >= 30 && fraction < 40) {
+                    clearInterval(timer);
+                    speed = 1000;
+                    timer = setInterval(mouseout, speed);
+                } else if (fraction >= 40) {
+                    clearInterval(timer);
+                    speed = 500;
+                    timer = setInterval(mouseout, speed);
+                }
+                //所有隐藏
+                hole.children().stop().hide();
+                // 老鼠的随机数
+                var x = Math.floor(Math.random() * 9);
+                var y = Math.floor(Math.random() * 9);
+                var z = Math.floor(Math.random() * 9);
+                //猫的随机数
+                var k = Math.floor(Math.random() * 9);
+
+                if (
+                    x === y ||
+                    x === z ||
+                    y === z ||
+                    x === k ||
+                    y === k ||
+                    z === k
+                ) {
+                    mouseout();
+                } else {
+                    // 老鼠显示
+                    hole.eq(x).children(".mouse").stop().fadeIn();
+                    hole.eq(y).children(".mouse").stop().fadeIn();
+                    hole.eq(z).children(".mouse").stop().fadeIn();
+                    // 猫显示
+                    hole.eq(k).children(".cat").stop().fadeIn();
+                }
+            }
+
+            // 打击老鼠的boom
+            $.each(hole, function (i) {
+                hole
+                    .eq(i)
+                    .children(".mouse")
+                    .on("click", function () {
+                        hole.eq(i).children(".mouse").hide();
+
+                        var funshu = Number($(".fraction").html());
+                        $(".fraction").html(funshu + 1);
+                    });
+            });
+            // 打击猫的boom
+            $.each(hole, function (i) {
+                hole
+                    .eq(i)
+                    .children(".cat")
+                    .on("click", function () {
+                        hole.eq(i).children(".cat").hide();
+                        var funshu = Number($(".fraction").html());
+                        $(".fraction").html(funshu - 1);
+                    });
+            });
+        });
+    });
+</script>
+
+</html>
+
+<script>
+    // $(function () { ... }): 等待页面加载完成后执行代码。
+    // var timer = null;: 声明一个变量 timer 并初始化为 null。
+    // var hole = $(".hole");: 获取所有 class 为 hole 的元素。
+    // var judge = false: 声明一个变量 judge 并初始化为 false。
+    // $(".btn").on("click", function () { ... }): 给 class 为 btn 的元素绑定点击事件。
+    // if (judge == true) { ... }: 判断游戏是否已经开始，如果已经开始则弹出提示并返回。
+    // judge = true: 将 judge 变量赋值为 true，表示游戏已经开始。
+    // $(".time").html("60秒");: 将 class 为 time 的元素的内容设置为 "60秒"。
+    // var countDowns = setInterval(countDown, 1000);: 声明一个变量 countDowns 并将 setInterval 函数的返回值赋值给它，每隔一秒执行一次 countDown 函数。
+    // var timeing = 60;: 声明一个变量 timeing 并初始化为 60。
+    // function countDown() { ... }: 声明一个倒计时函数 countDown。
+    // timeing--;: 将 timeing 变量减 1。
+    // $(".time").html(timeing + "秒");: 将 class 为 time 的元素的内容设置为当前剩余时间。
+    // if (timeing === 0) { ... }: 判断时间是否为 0，如果是则执行游戏结束的操作。
+    // var totalScore = $(".fraction").html();: 获取 class 为 fraction 的元素的内容，即总分。
+    // clearInterval(countDowns);: 清除倒计时定时器。
+    // clearInterval(timer);: 清除老鼠定时器。
+    // alert(游戏结束\n您的总分为：${ totalScore }分);: 弹出分数。
+    // judge = false: 将 judge 变量赋值为 false，表示游戏已经结束。
+    // hole.children().stop().hide();: 隐藏所有老鼠和猫。
+    // $('.fraction').html(''): 将分数清零。
+    // $(".time").html("");: 将倒计时清零。
+    // timer = setInterval(mouseout, 1000);: 声明一个变量 timer 并将 setInterval 函数的返回值赋值给它，每隔一秒执行一次 mouseout 函数。
+    // var speed = 1000;: 声明一个变量 speed 并初始化为 1000，表示老鼠出现的速度。
+    // function mouseout() { ... }: 声明老鼠定时器函数 mouseout。
+    // var fraction = $(".fraction").html();: 获取当前分数。
+    // if (fraction <= 10) { ... } else if (fraction >= 20 && fraction < 30) { ... } else if (fraction >= 30 && fraction < 40) { ... } else if (fraction >= 40) { ... }: 根据分数改变老鼠出现的速度。
+    // hole.children().stop().hide();: 隐藏所有老鼠和猫。
+    // var x = Math.floor(Math.random() * 9); var y = Math.floor(Math.random() * 9); var z = Math.floor(Math.random() * 9); var k = Math.floor(Math.random() * 9);: 随机生成老鼠和猫出现的位置。
+    // if (x === y || x === z || y === z || x === k || y === k || z === k) { mouseout(); } else { ... }: 判断老鼠和猫出现的位置是否重复，如果重复则重新生成，否则显示老鼠和猫。
+    // hole.eq(x).children(".mouse").stop().fadeIn(); hole.eq(y).children(".mouse").stop().fadeIn(); hole.eq(z).children(".mouse").stop().fadeIn(); hole.eq(k).children(".cat").stop().fadeIn();: 显示老鼠和猫。
+    // $.each(hole, function (i) { ... }): 遍历所有坑。
+    // hole.eq(i).children(".mouse").on("click", function () { ... }): 给老鼠绑定点击事件，点击后隐藏老鼠并增加分数。
+    // hole.eq(i).children(".cat").on("click", function () { ... }): 给猫绑定点击事件，点击后隐藏猫并减少分数。
+</script>

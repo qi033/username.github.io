@@ -1,0 +1,290 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#shouye {
+  background-color: rgb(216, 216, 216);
+}
+#shouye .top {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#shouye .top .topDiv {
+  width: 500px;
+  height: 150px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 82px;
+}
+#increase {
+  border-radius: 5px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+  width: 400px;
+  height: 370px;
+  background-color: #009688;
+  display: none;
+}
+#increase input {
+  width: 300px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+#rendering {
+  border-radius: 5px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+  width: 400px;
+  height: 370px;
+  background-color: #009688;
+  display: none;
+}
+#rendering input {
+  width: 300px;
+  height: 30px;
+  border-radius: 8px;
+}
+#update {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 335%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(204, 204, 204, 0.182);
+  display: none;
+  text-align: center;
+}
+
+#div2 {
+  display: none;
+  z-index: 1;
+}
+.layui-body {
+  z-index: 1;
+}
+#detail_One {
+  width: 400px;
+  height: 450px;
+  position: absolute;
+  left: 50%;
+  top: 380%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(204, 204, 204, 0.169);
+  text-align: center;
+  display: none;
+}
+
+.layui-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#boxone {
+  width: 400px;
+  /* height: 300px; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -20%);
+  background-color: rgba(8, 8, 8, 0.748);
+  text-align: center;
+  /* display: none; */
+  z-index: 10;
+  border-radius: 10px;
+}
+
+button {
+  width: 70px;
+  height: 25px;
+  color: #fff;
+  border: 1px solid #0eb0c9;
+  background-color: #0eb0c9;
+}
+
+.shanchu {
+  width: 70px;
+  height: 25px;
+  color: #fff;
+  border: 1px solid #c90e0e;
+  background-color: #c90e0e;
+}
+
+#boxone i {
+  color: #ffff;
+}
+
+#div1 {
+  width: 500px;
+  height: 500px;
+  /* border: 1px solid black; */
+  margin: auto;
+  margin-top: 10%;
+}
+
+input {
+  display: inline-block;
+}
+
+.layui-input {
+  float: left;
+}
+
+.cls {
+  display: inline-block;
+  vertical-align: middle;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid transparent;
+  padding: 0 18px;
+  background-color: #009688;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+
+  border-radius: 100px;
+}
+
+/* button {
+  display: inline-block;
+  vertical-align: middle;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid transparent;
+  padding: 0 18px;
+  background-color: #009688;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 100px;
+  cursor: pointer;
+} */
+
+#zongsu {
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+}
+.chakan {
+  width: 400px;
+  height: 240px;
+  padding-top: 50px;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -25%);
+  background-color: rgba(8, 8, 8, 0.748);
+  text-align: center;
+  display: none;
+  /* z-index: 10; */
+  color: white;
+  border-radius: 10px;
+}
+
+* {
+  padding: 0px;
+  bottom: 0px;
+}
+
+#zuiboxer table {
+  text-align: center;
+}
+
+#zuiboxer table tbody tr td {
+  height: 35px;
+}
+
+#increased {
+  background-color: #4165d7;
+  border: 1px solid #4165d7;
+}
+
+#Delete-All {
+  background-color: pink;
+  border: 1px solid pink;
+}
+
+.boxsearch input {
+  width: 200px;
+  height: 25px;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+
+.boxsearch {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+}
+
+.tae {
+  background-color: rgb(120, 222, 207);
+}
+
+#zuiboxer table {
+  border: 1px solid #ddd;
+}
+
+#zuiboxer table thead {
+  height: 35px;
+  background-color: #f2f2f2;
+}
+
+#zuiboxer table tbody tr:hover {
+  background-color: #ccc;
+}
+
+.ding {
+  width: 75px;
+  height: 15px;
+}
+
+.detailed {
+  color: #000;
+  background-color: #f5f7fa;
+}
+
+.yidong {
+  color: #4165d7;
+  background-color: #f5f7fa;
+}
+
+table tbody th {
+  height: 45px;
+}
+
+.edit {
+  color: #fff;
+  background-color: #1e9fff;
+  border: 1px solid #1e9fff;
+}
+
+.deletes {
+  background-color: #ff5722;
+  border: 1px solid #ff5722;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  margin: auto;
+}
+
+.qidong {
+  border-radius: 5px;
+  background-color: #4165d7;
+}

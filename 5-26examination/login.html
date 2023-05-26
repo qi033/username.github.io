@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.8.0/dist/css/layui.css" rel="stylesheet">
+
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.8.0/dist/layui.js"></script>
+</head>
+<style>
+    #box {
+        width: 60%;
+        height: 350px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    #boxyi {
+        width: 50%;
+        height: 350px;
+        background: url(https://img2.baidu.com/it/u=396343075,2820833643&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800) no-repeat;
+        background-size: 90% 90%;
+        border-radius: 10px 0px 0px 10px;
+        background-position: center;
+
+        background-color: #dddddd2d;
+    }
+
+    #boxer {
+        height: 100%;
+        width: 60%;
+        border-radius: 0px 10px 10px 0px;
+        background-color: #dddddd2d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #boxsan input {
+        border-radius: 8px;
+    }
+
+    #boxsan {
+        width: 80%;
+        box-shadow: 0px 0px 7px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        background-color: #87d4f0;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-family: cursive;
+    }
+</style>
+<style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* 图片清晰 */
+        image-rendering: -moz-crisp-edges;
+        /* Firefox */
+        image-rendering: -o-crisp-edges;
+        /* Opera */
+        image-rendering: -webkit-optimize-contrast;
+        /* Webkit (non-standard naming) */
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+        /* IE (non-standard property) */
+
+    }
+
+    .swiper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* layui  JS  */
+
+
+    .demo-login-container {
+        width: 320px;
+        margin: 21px auto 0;
+    }
+
+    .demo-login-other .layui-icon {
+        position: relative;
+        display: inline-block;
+        margin: 0 2px;
+        top: 2px;
+        font-size: 26px;
+    }
+
+    .H1 {
+        position: absolute;
+        top: 5%;
+        z-index: 1;
+        font-size: 88px;
+        left: 50%;
+        transform: translate(-50%);
+        -webkit-text-stroke: 1px #e2dfdf;
+        /* display: block; */
+    }
+
+    #zzzuidabox {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100vh;
+        background: url(http://101.34.139.112/static/img/login-loading.0e8edbca.gif) no-repeat;
+        background-size: 100% 100%;
+        z-index: 9999;
+    }
+
+    #captcha {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        color: #ffff;
+        /* word: spacing 0px; */
+        font-size: 20px;
+        border-radius: 8px;
+        background-color: #6dcaec;
+    }
+</style>
+
+
+<body id="">
+    <div id="zzzuidabox"></div>
+    <!-- 图片轮播 -->
+    <div class="swiper mySwiper" id="wocao">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=2458102896,3671490152&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img0.baidu.com/it/u=1183114499,3205352247&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=281"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img0.baidu.com/it/u=1714509985,3671701246&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=1473681519,65474537&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=3662082497,2355161728&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img0.baidu.com/it/u=1004909890,4267253390&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=4122690534,3158070763&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 登录表单 -->
+    <h1 class="H1">登录</h1>
+    <div id="box">
+        <div id="boxyi"></div>
+        <div id="boxer">
+            <div id="boxsan">
+                <form class="layui-form">
+                    <div class="demo-login-container">
+                        <div class="layui-form-item">
+                            <div class="layui-input-wrap">
+                                <div class="layui-input-prefix">
+                                    <i class="layui-icon layui-icon-username"></i>
+                                </div>
+                                <input type="text" name="username" value="" lay-verify="required" placeholder="用户名"
+                                    lay-reqtext="请填写用户名" autocomplete="off" class="layui-input" lay-affix="clear">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-wrap">
+                                <div class="layui-input-prefix">
+                                    <i class="layui-icon layui-icon-password"></i>
+                                </div>
+                                <input type="password" name="password" value="" lay-verify="required"
+                                    placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input"
+                                    lay-affix="eye">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-row">
+                                <div class="layui-col-xs7">
+                                    <div class="layui-input-wrap">
+                                        <div class="layui-input-prefix">
+                                            <i class="layui-icon layui-icon-vercode"></i>
+                                        </div>
+                                        <input type="text" name="captcha" value="" lay-verify="required"
+                                            placeholder="验证码" lay-reqtext="请填写验证码" autocomplete="off"
+                                            class="layui-input" lay-affix="clear" id="codes">
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs5">
+                                    <div style="margin-left: 10px;">
+                                        <div id="captcha"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <input type="checkbox" name="remember" lay-skin="primary" title="记住密码" id="remember">
+                                <a href="form.html#forget" style="float: right; margin-top: 7px;">忘记密码？</a>
+                            </div>
+                            <div class="layui-form-item">
+                                <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login">登录</button>
+                            </div>
+                            <div class="layui-form-item demo-login-other">
+                                <label>社交账号登录</label>
+                                <span style="padding: 0 21px 0 6px;">
+                                    <a href="javascript:;"><i class="layui-icon layui-icon-login-qq"
+                                            style="color: #3492ed;"></i></a>
+                                    <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat"
+                                            style="color: #4daf29;"></i></a>
+                                    <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo"
+                                            style="color: #cf1900;"></i></a>
+                                </span>
+                                或 <a href="form.html#reg">注册帐号</a></span>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- 页面加载动画 -->
+<script>
+    $(window).on('load', function () {
+        setTimeout(function () {
+            $('#zzzuidabox').fadeOut('slow');
+        }, 3000);
+    });
+</script>
+<!-- swiper JS -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 3000,//1秒切换一次
+        },
+
+    });
+</script>
+<!-- layui JS  -->
+<script>
+    var captcha = "";
+    layui.use(function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        if (localStorage.getItem('clab')) {
+            data = JSON.parse(localStorage.getItem('clab'))
+        }
+        // 提交事件
+        form.on('submit(demo-login)', function (data) {
+            var field = data.field; // 获取表单字段值
+
+            var arr = document.getElementById('remember')
+
+            if (field.username == '999' && field.password == 'wocao' && $('#codes').val() == captcha) {
+                alert('登录成功')
+
+                let data = {
+                    username: field.username,
+                    password: field.password,
+                }
+                if (arr.checked == true) {
+                    console.log(312)
+                    localStorage.setItem('clab', JSON.stringify(data))
+                }
+                window.location.href = "./index.html";
+            } else {
+                alert('注册失败')
+            }
+
+            // 此处可执行 Ajax 等操作
+
+            return false; // 阻止默认 form 跳转
+        });
+    });
+    // 生成随机数验证码
+    function generateCaptcha() {
+
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 4; i++) {
+            captcha += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return captcha;
+    }
+    // 显示随机数验证码
+    function showCaptcha() {
+        var captcha = generateCaptcha();
+        $("#captcha").text(captcha);
+    }
+
+    // 刷新随机数验证码
+    $("#captcha").click(function () {
+        captcha = ""
+
+        showCaptcha();
+    });
+    // 初始化页面时显示随机数验证码
+    showCaptcha();
+
+    // 
+</script>
+
+</html>
